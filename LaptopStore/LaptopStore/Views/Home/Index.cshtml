@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="index-banner">
+    <div class="wmuSlider example1" style="height: 560px;">
+        <div class="wmuSliderWrapper">
+            <article style="position: relative; width: 100%; opacity: 1;">
+                <div class="banner-wrap">
+                    <div class="slider-left">
+                        <img src="~/Content/images/laptop/banner1_msi_gs66.png" alt="" />
+                    </div>
+                    <div class="slider-right">
+                        <h1>MSI GS66</h1>
+                        <h2>Stealth</h2>
+                        <p>Shaper in core black</p>
+                        <div class="btn"><a href="shop.html">Mua Ngay</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-wrap">
+                    <div class="slider-left">
+                        <img src="~/Content/images/laptop/banner2_lenovo_thinkpad_t480.jpg" alt="" />
+                    </div>
+                    <div class="slider-right">
+                        <h1>Thinkpad</h1>
+                        <h2>T480</h2>
+                        <p>Design for serious business</p>
+                        <div class="btn"><a href="shop.html">Mua Ngay</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-wrap">
+                    <div class="slider-left">
+                        <img src="~/Content/images/laptop/banner3_lenovo_thinkpad_p51.jpg" alt="" />
+                    </div>
+                    <div class="slider-right">
+                        <h1>Thinkpad</h1>
+                        <h2>p51</h2>
+                        <p>i7 6820HQ|16GB|SSD 512GB|Quadro M1200</p>
+                        <div class="btn"><a href="shop.html">Mua Ngay</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-wrap">
+                    <div class="slider-left">
+                        <img src="~/Content/images/laptop/banner4_dell_xps_7590.jpg" alt="" />
+                    </div>
+                    <div class="slider-right">
+                        <h1>Dell XPS</h1>
+                        <h2>7590</h2>
+                        <p>i7 9750H|8GB|SSD 256GB|GTX1650 FHD IPS</p>
+                        <div class="btn"><a href="shop.html">Mua Ngay</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </article>
+            <article style="position: absolute; width: 100%; opacity: 0;">
+                <div class="banner-wrap">
+                    <div class="slider-left">
+                        <img src="~/Content/images/laptop/banner5_asus_vivobook.jpg" alt="" />
+                    </div>
+                    <div class="slider-right">
+                        <h1>ASUS ZenBook</h1>
+                        <h2>Pro Duo</h2>
+                        <p>Create the uncreated</p>
+                        <div class="btn"><a href="shop.html">Mua Ngay</a></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </article>
+        </div>
+        <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
+        <ul class="wmuSliderPagination">
+            <li><a href="#" class="">0</a></li>
+            <li><a href="#" class="">1</a></li>
+            <li><a href="#" class="wmuActive">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+        </ul>
+        <a class="wmuSliderPrev">Previous</a>
+        <a class="wmuSliderNext">Next</a>
+        <ul class="wmuSliderPagination">
+            <li><a href="#" class="wmuActive">0</a></li>
+            <li><a href="#" class="">1</a></li>
+            <li><a href="#" class="">2</a></li>
+            <li><a href="#" class="">3</a></li>
+            <li><a href="#" class="">4</a></li>
+        </ul>
+    </div>
+    <script src="~/Content/js/jquery.wmuSlider.js"></script>
+    <script type="text/javascript" src="~/Content/js/modernizr.custom.min.js"></script>
+    <script>
+        $('.example1').wmuSlider();
+    </script>
+</div>
+<div class="main">
+    <div class="wrap">
+        <div class="content-top">
+            <div class="clear"></div>
+        </div>
+        @{
+            Html.RenderAction("SPOfNew");
+        }
+    </div>
+</div>

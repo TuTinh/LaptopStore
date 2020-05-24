@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4BB94567-0AD4-4755-AD12-6CBD361A58FC}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LaptopStore</RootNamespace>
+    <AssemblyName>LaptopStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44332</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\CTDonHang.cs" />
+    <Compile Include="Models\Entities\DanhMuc.cs" />
+    <Compile Include="Models\Entities\DonHang.cs" />
+    <Compile Include="Models\Entities\KhachHang.cs" />
+    <Compile Include="Models\Entities\LaptopStoreDB.cs" />
+    <Compile Include="Models\Entities\SanPham.cs" />
+    <Compile Include="Models\Entities\sysdiagram.cs" />
+    <Compile Include="Models\Functions\DanhMucFunction.cs" />
+    <Compile Include="Models\Functions\DonHangFunction.cs" />
+    <Compile Include="Models\Functions\SanPhamFunction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\etalage.css" />
+    <Content Include="Content\css\form.css" />
+    <Content Include="Content\css\megamenu.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\css\stylePer.css" />
+    <Content Include="Content\images\arrow.png" />
+    <Content Include="Content\images\arrow2.gif" />
+    <Content Include="Content\images\arrows.png" />
+    <Content Include="Content\images\as.png" />
+    <Content Include="Content\images\b-arrow.png" />
+    <Content Include="Content\images\border.png" />
+    <Content Include="Content\images\b_star.png" />
+    <Content Include="Content\images\del_g5590.jpg" />
+    <Content Include="Content\images\down_arrow.png" />
+    <Content Include="Content\images\f_icon.png" />
+    <Content Include="Content\images\f_icon1.png" />
+    <Content Include="Content\images\f_icon2.png" />
+    <Content Include="Content\images\img-sprite.png" />
+    <Content Include="Content\images\laptop\asus_f571.png" />
+    <Content Include="Content\images\laptop\asus_fx705.png" />
+    <Content Include="Content\images\laptop\asus_rog.png" />
+    <Content Include="Content\images\laptop\banner1_msi_gs66.png" />
+    <Content Include="Content\images\laptop\banner2_lenovo_thinkpad_t480.jpg" />
+    <Content Include="Content\images\laptop\banner3_lenovo_thinkpad_p51.jpg" />
+    <Content Include="Content\images\laptop\banner4_dell_xps_7590.jpg" />
+    <Content Include="Content\images\laptop\banner5_asus_vivobook.jpg" />
+    <Content Include="Content\images\laptop\dell_alienware_m15.jpg" />
+    <Content Include="Content\images\laptop\dell_g7590.jpg" />
+    <Content Include="Content\images\laptop\del_g5590.jpg" />
+    <Content Include="Content\images\laptop\laptop1.jpg" />
+    <Content Include="Content\images\laptop\laptop2.jpg" />
+    <Content Include="Content\images\laptop\laptop3.jpg" />
+    <Content Include="Content\images\laptop\laptop4.png" />
+    <Content Include="Content\images\laptop\laptop5.jpg" />
+    <Content Include="Content\images\laptop\laptop6.jpg" />
+    <Content Include="Content\images\laptop\laptop7.jpg" />
+    <Content Include="Content\images\laptop\laptop8.jpg" />
+    <Content Include="Content\images\laptop\Laptop_nav.png" />
+    <Content Include="Content\images\laptop\Laptop_nav1.jpg" />
+    <Content Include="Content\images\laptop\Laptop_nav2.png" />
+    <Content Include="Content\images\laptop\Laptop_nav3.png" />
+    <Content Include="Content\images\laptop\Laptop_nav4.png" />
+    <Content Include="Content\images\laptop\Laptop_nav5.png" />
+    <Content Include="Content\images\laptop\Laptop_nav6.png" />
+    <Content Include="Content\images\laptop\Laptop_nav7.png" />
+    <Content Include="Content\images\laptop\lenovo_l340.jpg" />
+    <Content Include="Content\images\laptop\lenovo_y740.jpg" />
+    <Content Include="Content\images\laptop\logo.png" />
+    <Content Include="Content\images\laptop\msi_gp65.png" />
+    <Content Include="Content\images\laptop\msi_gt76.png" />
+    <Content Include="Content\images\laptop\msi_prestige15.png" />
+    <Content Include="Content\images\laptop\t1_vivo.jpg" />
+    <Content Include="Content\images\laptop\t2_vivo.jpg" />
+    <Content Include="Content\images\laptop\t3_vivo.jpg" />
+    <Content Include="Content\images\laptop\t4_vivo.png" />
+    <Content Include="Content\images\nz.png" />
+    <Content Include="Content\images\pk.png" />
+    <Content Include="Content\images\plus.png" />
+    <Content Include="Content\images\Products\1.jpg" />
+    <Content Include="Content\images\Products\12301622_521110334717818_2925575681928786293_n.jpg" />
+    <Content Include="Content\images\Products\12417950_1521902814805342_4174678019774135704_n.jpg" />
+    <Content Include="Content\images\Products\12631333_1019286451488935_7407677771048041036_n.jpg" />
+    <Content Include="Content\images\Products\12651097_900731916691904_6595463021743752744_n.jpg" />
+    <Content Include="Content\images\Products\12743601_1563931927258874_1037898389335426370_n.jpg" />
+    <Content Include="Content\images\Products\1936270_1235575209802622_1905268988772084463_n.jpg" />
+    <Content Include="Content\images\Products\2-512.png" />
+    <Content Include="Content\images\Products\2.jpg" />
+    <Content Include="Content\images\Products\3.jpg" />
+    <Content Include="Content\images\Products\3957.jpg" />
+    <Content Include="Content\images\Products\4.jpg" />
+    <Content Include="Content\images\Products\807.jpg" />
+    <Content Include="Content\images\Products\about-img.jpg" />
+    <Content Include="Content\images\Products\admin.jpg" />
+    <Content Include="Content\images\Products\admin.png" />
+    <Content Include="Content\images\Products\admin2.png" />
+    <Content Include="Content\images\Products\admin3.png" />
+    <Content Include="Content\images\Products\admin4.png" />
+    <Content Include="Content\images\Products\ads-hot.gif" />
+    <Content Include="Content\images\Products\ajax-loader.gif" />
+    <Content Include="Content\images\Products\ali1.JPG" />
+    <Content Include="Content\images\Products\ali2.JPG" />
+    <Content Include="Content\images\Products\ali3.jpg" />
+    <Content Include="Content\images\Products\ali4.jpg" />
+    <Content Include="Content\images\Products\ali5.jpg" />
+    <Content Include="Content\images\Products\ali6.jpg" />
+    <Content Include="Content\images\Products\ali7.jpg" />
+    <Content Include="Content\images\Products\ali8.png" />
+    <Content Include="Content\images\Products\app1.jpg" />
+    <Content Include="Content\images\Products\app10.jpg" />
+    <Content Include="Content\images\Products\app11.jpg" />
+    <Content Include="Content\images\Products\app12.jpg" />
+    <Content Include="Content\images\Products\app13.jpg" />
+    <Content Include="Content\images\Products\app2.jpg" />
+    <Content Include="Content\images\Products\app3.jpg" />
+    <Content Include="Content\images\Products\app4.jpg" />
+    <Content Include="Content\images\Products\app5.jpg" />
+    <Content Include="Content\images\Products\app6.jpg" />
+    <Content Include="Content\images\Products\app7.jpg" />
+    <Content Include="Content\images\Products\app8.jpg" />
+    <Content Include="Content\images\Products\app9.jpg" />
+    <Content Include="Content\images\Products\Apple App Store-50.png" />
+    <Content Include="Content\images\Products\appst.png" />
+    <Content Include="Content\images\Products\arrows.png" />
+    <Content Include="Content\images\Products\arrow_up.png" />
+    <Content Include="Content\images\Products\asu.jpg" />
+    <Content Include="Content\images\Products\asu1.jpg" />
+    <Content Include="Content\images\Products\asu1.png" />
+    <Content Include="Content\images\Products\asu2.jpg" />
+    <Content Include="Content\images\Products\asu3.jpg" />
+    <Content Include="Content\images\Products\asu4.jpg" />
+    <Content Include="Content\images\Products\asu5.jpg" />
+    <Content Include="Content\images\Products\asussss.jpg" />
+    <Content Include="Content\images\Products\au.png" />
+    <Content Include="Content\images\Products\ban.jpg" />
+    <Content Include="Content\images\Products\bann2.jpg" />
+    <Content Include="Content\images\Products\bm.png" />
+    <Content Include="Content\images\Products\body_bg3.jpg" />
+    <Content Include="Content\images\Products\Bookmark-50.png" />
+    <Content Include="Content\images\Products\button-bg.png" />
+    <Content Include="Content\images\Products\cart.png" />
+    <Content Include="Content\images\Products\chrome_web_store_logo-100029795-gallery.jpg" />
+    <Content Include="Content\images\Products\ck.png" />
+    <Content Include="Content\images\Products\computer-icon.png" />
+    <Content Include="Content\images\Products\contact.png" />
+    <Content Include="Content\images\Products\Cow Filled-50.png" />
+    <Content Include="Content\images\Products\Cow-50.png" />
+    <Content Include="Content\images\Products\cu.png" />
+    <Content Include="Content\images\Products\del1.jpg" />
+    <Content Include="Content\images\Products\del2.jpg" />
+    <Content Include="Content\images\Products\del3.jpg" />
+    <Content Include="Content\images\Products\del4.jpg" />
+    <Content Include="Content\images\Products\del5.jpg" />
+    <Content Include="Content\images\Products\del6.jpg" />
+    <Content Include="Content\images\Products\del7.jpg" />
+    <Content Include="Content\images\Products\del8.jpg" />
+    <Content Include="Content\images\Products\dell1.jpg" />
+    <Content Include="Content\images\Products\dell2.jpg" />
+    <Content Include="Content\images\Products\dell3.jpg" />
+    <Content Include="Content\images\Products\dell4.jpg" />
+    <Content Include="Content\images\Products\DIAMOND.png" />
+    <Content Include="Content\images\Products\discount-img.png" />
+    <Content Include="Content\images\Products\down-arrow.png" />
+    <Content Include="Content\images\Products\Dribbble-50.png" />
+    <Content Include="Content\images\Products\dribbble.png" />
+    <Content Include="Content\images\Products\drop_arrow-hover.png" />
+    <Content Include="Content\images\Products\drop_arrow.png" />
+    <Content Include="Content\images\Products\ETWF001_20151226134806974.gif" />
+    <Content Include="Content\images\Products\facebook-icon.jpg" />
+    <Content Include="Content\images\Products\facebook.png" />
+    <Content Include="Content\images\Products\far_flat_icon11.png" />
+    <Content Include="Content\images\Products\feature-pic1.png" />
+    <Content Include="Content\images\Products\feature-pic2.jpg" />
+    <Content Include="Content\images\Products\feature-pic3.jpg" />
+    <Content Include="Content\images\Products\feature-pic4.png" />
+    <Content Include="Content\images\Products\footer-bg.gif" />
+    <Content Include="Content\images\Products\gb.png" />
+    <Content Include="Content\images\Products\Google Play-50.png" />
+    <Content Include="Content\images\Products\google-play-icon.png" />
+    <Content Include="Content\images\Products\googleplay.png" />
+    <Content Include="Content\images\Products\gradient_light-1.png" />
+    <Content Include="Content\images\Products\header_arrow.png" />
+    <Content Include="Content\images\Products\header_cart.png" />
+    <Content Include="Content\images\Products\hihiadmin.png" />
+    <Content Include="Content\images\Products\home-icon.png" />
+    <Content Include="Content\images\Products\hot%288%29.gif" />
+    <Content Include="Content\images\Products\hot-icon-1.gif" />
+    <Content Include="Content\images\Products\hp1.jpg" />
+    <Content Include="Content\images\Products\hp2.jpg" />
+    <Content Include="Content\images\Products\hp3.jpg" />
+    <Content Include="Content\images\Products\hp4.jpg" />
+    <Content Include="Content\images\Products\hp5.jpg" />
+    <Content Include="Content\images\Products\hp6.jpg" />
+    <Content Include="Content\images\Products\hp7.jpg" />
+    <Content Include="Content\images\Products\icon hotttt.gif" />
+    <Content Include="Content\images\Products\icon-1.png" />
+    <Content Include="Content\images\Products\icon-192.png" />
+    <Content Include="Content\images\Products\icon-2.png" />
+    <Content Include="Content\images\Products\icon-3.png" />
+    <Content Include="Content\images\Products\icon-4.png" />
+    <Content Include="Content\images\Products\icon-hot.gif" />
+    <Content Include="Content\images\Products\icon-pack-android-thecoffeemilks-cirly-round-playstore.png" />
+    <Content Include="Content\images\Products\icon-title.png" />
+    <Content Include="Content\images\Products\icons-png\action-black.png" />
+    <Content Include="Content\images\Products\icons-png\action-white.png" />
+    <Content Include="Content\images\Products\icons-png\alert-black.png" />
+    <Content Include="Content\images\Products\icons-png\alert-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-l-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-l-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-r-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-r-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-d-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-l-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-l-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-r-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-r-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-l-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-l-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-r-black.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-r-white.png" />
+    <Content Include="Content\images\Products\icons-png\arrow-u-white.png" />
+    <Content Include="Content\images\Products\icons-png\audio-black.png" />
+    <Content Include="Content\images\Products\icons-png\audio-white.png" />
+    <Content Include="Content\images\Products\icons-png\back-black.png" />
+    <Content Include="Content\images\Products\icons-png\back-white.png" />
+    <Content Include="Content\images\Products\icons-png\bars-black.png" />
+    <Content Include="Content\images\Products\icons-png\bars-white.png" />
+    <Content Include="Content\images\Products\icons-png\bullets-black.png" />
+    <Content Include="Content\images\Products\icons-png\bullets-white.png" />
+    <Content Include="Content\images\Products\icons-png\calendar-black.png" />
+    <Content Include="Content\images\Products\icons-png\calendar-white.png" />
+    <Content Include="Content\images\Products\icons-png\camera-black.png" />
+    <Content Include="Content\images\Products\icons-png\camera-white.png" />
+    <Content Include="Content\images\Products\icons-png\carat-d-black.png" />
+    <Content Include="Content\images\Products\icons-png\carat-d-white.png" />
+    <Content Include="Content\images\Products\icons-png\carat-l-black.png" />
+    <Content Include="Content\images\Products\icons-png\carat-l-white.png" />
+    <Content Include="Content\images\Products\icons-png\carat-r-black.png" />
+    <Content Include="Content\images\Products\icons-png\carat-r-white.png" />
+    <Content Include="Content\images\Products\icons-png\carat-u-black.png" />
+    <Content Include="Content\images\Products\icons-png\carat-u-white.png" />
+    <Content Include="Content\images\Products\icons-png\check-black.png" />
+    <Content Include="Content\images\Products\icons-png\check-white.png" />
+    <Content Include="Content\images\Products\icons-png\clock-black.png" />
+    <Content Include="Content\images\Products\icons-png\clock-white.png" />
+    <Content Include="Content\images\Products\icons-png\cloud-black.png" />
+    <Content Include="Content\images\Products\icons-png\cloud-white.png" />
+    <Content Include="Content\images\Products\icons-png\comment-black.png" />
+    <Content Include="Content\images\Products\icons-png\comment-white.png" />
+    <Content Include="Content\images\Products\icons-png\delete-black.png" />
+    <Content Include="Content\images\Products\icons-png\delete-white.png" />
+    <Content Include="Content\images\Products\icons-png\edit-black.png" />
+    <Content Include="Content\images\Products\icons-png\edit-white.png" />
+    <Content Include="Content\images\Products\icons-png\eye-black.png" />
+    <Content Include="Content\images\Products\icons-png\eye-white.png" />
+    <Content Include="Content\images\Products\icons-png\forbidden-black.png" />
+    <Content Include="Content\images\Products\icons-png\forbidden-white.png" />
+    <Content Include="Content\images\Products\icons-png\forward-black.png" />
+    <Content Include="Content\images\Products\icons-png\forward-white.png" />
+    <Content Include="Content\images\Products\icons-png\gear-black.png" />
+    <Content Include="Content\images\Products\icons-png\gear-white.png" />
+    <Content Include="Content\images\Products\icons-png\grid-black.png" />
+    <Content Include="Content\images\Products\icons-png\grid-white.png" />
+    <Content Include="Content\images\Products\icons-png\heart-black.png" />
+    <Content Include="Content\images\Products\icons-png\heart-white.png" />
+    <Content Include="Content\images\Products\icons-png\home-black.png" />
+    <Content Include="Content\images\Products\icons-png\home-white.png" />
+    <Content Include="Content\images\Products\icons-png\info-black.png" />
+    <Content Include="Content\images\Products\icons-png\info-white.png" />
+    <Content Include="Content\images\Products\icons-png\location-black.png" />
+    <Content Include="Content\images\Products\icons-png\location-white.png" />
+    <Content Include="Content\images\Products\icons-png\lock-black.png" />
+    <Content Include="Content\images\Products\icons-png\lock-white.png" />
+    <Content Include="Content\images\Products\icons-png\mail-black.png" />
+    <Content Include="Content\images\Products\icons-png\mail-white.png" />
+    <Content Include="Content\images\Products\icons-png\minus-black.png" />
+    <Content Include="Content\images\Products\icons-png\minus-white.png" />
+    <Content Include="Content\images\Products\icons-png\navigation-black.png" />
+    <Content Include="Content\images\Products\icons-png\navigation-white.png" />
+    <Content Include="Content\images\Products\icons-png\phone-black.png" />
+    <Content Include="Content\images\Products\icons-png\phone-white.png" />
+    <Content Include="Content\images\Products\icons-png\plus-black.png" />
+    <Content Include="Content\images\Products\icons-png\plus-white.png" />
+    <Content Include="Content\images\Products\icons-png\power-black.png" />
+    <Content Include="Content\images\Products\icons-png\power-white.png" />
+    <Content Include="Content\images\Products\icons-png\recycle-black.png" />
+    <Content Include="Content\images\Products\icons-png\recycle-white.png" />
+    <Content Include="Content\images\Products\icons-png\refresh-black.png" />
+    <Content Include="Content\images\Products\icons-png\refresh-white.png" />
+    <Content Include="Content\images\Products\icons-png\search-black.png" />
+    <Content Include="Content\images\Products\icons-png\search-white.png" />
+    <Content Include="Content\images\Products\icons-png\shop-black.png" />
+    <Content Include="Content\images\Products\icons-png\shop-white.png" />
+    <Content Include="Content\images\Products\icons-png\star-black.png" />
+    <Content Include="Content\images\Products\icons-png\star-white.png" />
+    <Content Include="Content\images\Products\icons-png\tag-black.png" />
+    <Content Include="Content\images\Products\icons-png\tag-white.png" />
+    <Content Include="Content\images\Products\icons-png\user-black.png" />
+    <Content Include="Content\images\Products\icons-png\user-white.png" />
+    <Content Include="Content\images\Products\icons-png\video-black.png" />
+    <Content Include="Content\images\Products\icons-png\video-white.png" />
+    <Content Include="Content\images\Products\icons-svg\action-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\action-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\alert-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\alert-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-l-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-l-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-r-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-r-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-d-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-l-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-l-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-r-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-r-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-l-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-l-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-r-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-r-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\arrow-u-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\audio-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\audio-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\back-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\back-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\bars-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\bars-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\bullets-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\bullets-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\calendar-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\calendar-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\camera-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\camera-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-d-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-d-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-l-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-l-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-r-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-r-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-u-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\carat-u-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\check-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\check-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\clock-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\clock-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\cloud-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\cloud-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\comment-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\comment-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\delete-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\delete-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\edit-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\edit-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\eye-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\eye-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\forbidden-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\forbidden-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\forward-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\forward-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\gear-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\gear-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\grid-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\grid-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\heart-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\heart-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\home-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\home-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\info-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\info-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\location-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\location-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\lock-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\lock-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\mail-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\mail-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\minus-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\minus-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\navigation-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\navigation-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\phone-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\phone-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\plus-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\plus-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\power-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\power-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\recycle-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\recycle-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\refresh-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\refresh-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\search-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\search-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\shop-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\shop-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\star-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\star-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\tag-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\tag-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\user-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\user-white.svg" />
+    <Content Include="Content\images\Products\icons-svg\video-black.svg" />
+    <Content Include="Content\images\Products\icons-svg\video-white.svg" />
+    <Content Include="Content\images\Products\id1.png" />
+    <Content Include="Content\images\Products\id2.png" />
+    <Content Include="Content\images\Products\id3.png" />
+    <Content Include="Content\images\Products\id4.png" />
+    <Content Include="Content\images\Products\images.jpg" />
+    <Content Include="Content\images\Products\laptop.png" />
+    <Content Include="Content\images\Products\laptop_PNG8885.png" />
+    <Content Include="Content\images\Products\large-button-overlay.png" />
+    <Content Include="Content\images\Products\linkedin.png" />
+    <Content Include="Content\images\Products\log1.jpg" />
+    <Content Include="Content\images\Products\log12.png" />
+    <Content Include="Content\images\Products\log2.jpg" />
+    <Content Include="Content\images\Products\logg.png" />
+    <Content Include="Content\images\Products\login copy.png" />
+    <Content Include="Content\images\Products\login-button-png-hi.png" />
+    <Content Include="Content\images\Products\login-icon.jpg" />
+    <Content Include="Content\images\Products\loginhi.png" />
+    <Content Include="Content\images\Products\loginhi1.png" />
+    <Content Include="Content\images\Products\LOGIN_BUTTON.png" />
+    <Content Include="Content\images\Products\logo.jpg" />
+    <Content Include="Content\images\Products\logo.png" />
+    <Content Include="Content\images\Products\logo1.png" />
+    <Content Include="Content\images\Products\logo2.png" />
+    <Content Include="Content\images\Products\logo3.png" />
+    <Content Include="Content\images\Products\logo4.png" />
+    <Content Include="Content\images\Products\minh_hoa_dong_vat_27.JPG" />
+    <Content Include="Content\images\Products\monkey-head-icon-vector-6106819.jpg" />
+    <Content Include="Content\images\Products\msi1.jpg" />
+    <Content Include="Content\images\Products\msi2.jpg" />
+    <Content Include="Content\images\Products\msi3.jpg" />
+    <Content Include="Content\images\Products\msi4.jpg" />
+    <Content Include="Content\images\Products\msi5.jpg" />
+    <Content Include="Content\images\Products\msi6.jpg" />
+    <Content Include="Content\images\Products\msi7.jpg" />
+    <Content Include="Content\images\Products\msi8.jpg" />
+    <Content Include="Content\images\Products\msi9.jpg" />
+    <Content Include="Content\images\Products\new-pic1.jpg" />
+    <Content Include="Content\images\Products\new-pic2.jpg" />
+    <Content Include="Content\images\Products\new-pic3.jpg" />
+    <Content Include="Content\images\Products\new.gif" />
+    <Content Include="Content\images\Products\Next-Launcher-3D-Shell-v3.17.png" />
+    <Content Include="Content\images\Products\notebook-512.png" />
+    <Content Include="Content\images\Products\pic.png" />
+    <Content Include="Content\images\Products\pic1.png" />
+    <Content Include="Content\images\Products\pic2.jpg" />
+    <Content Include="Content\images\Products\pic3.jpg" />
+    <Content Include="Content\images\Products\pic3.png" />
+    <Content Include="Content\images\Products\pic4.png" />
+    <Content Include="Content\images\Products\preview-img.jpg" />
+    <Content Include="Content\images\Products\preview-img3.jpg" />
+    <Content Include="Content\images\Products\preview-img4.jpg" />
+    <Content Include="Content\images\Products\preview-img5.jpg" />
+    <Content Include="Content\images\Products\preview-img6.jpg" />
+    <Content Include="Content\images\Products\rating.png" />
+    <Content Include="Content\images\Products\rog.jpg" />
+    <Content Include="Content\images\Products\rog3.png" />
+    <Content Include="Content\images\Products\skype.png" />
+    <Content Include="Content\images\Products\slide-1-image.png" />
+    <Content Include="Content\images\Products\slide-2-image.jpg" />
+    <Content Include="Content\images\Products\slide-3-image.jpg" />
+    <Content Include="Content\images\Products\sn1.jpg" />
+    <Content Include="Content\images\Products\sn10.jpg" />
+    <Content Include="Content\images\Products\sn11.jpg" />
+    <Content Include="Content\images\Products\sn12.jpg" />
+    <Content Include="Content\images\Products\sn13.jpg" />
+    <Content Include="Content\images\Products\sn14.jpg" />
+    <Content Include="Content\images\Products\sn2.jpg" />
+    <Content Include="Content\images\Products\sn3.jpeg" />
+    <Content Include="Content\images\Products\sn4.jpg" />
+    <Content Include="Content\images\Products\sn5.jpg" />
+    <Content Include="Content\images\Products\sn6.jpg" />
+    <Content Include="Content\images\Products\sn7.jpg" />
+    <Content Include="Content\images\Products\sn8.jpg" />
+    <Content Include="Content\images\Products\sn9.jpg" />
+    <Content Include="Content\images\Products\tag.png" />
+    <Content Include="Content\images\Products\team1.jpg" />
+    <Content Include="Content\images\Products\team2.jpg" />
+    <Content Include="Content\images\Products\team3.jpg" />
+    <Content Include="Content\images\Products\team4.jpg" />
+    <Content Include="Content\images\Products\theme1.jpg" />
+    <Content Include="Content\images\Products\Twitter Filled-50.png" />
+    <Content Include="Content\images\Products\Twitter-50.png" />
+    <Content Include="Content\images\Products\twitter.png" />
+    <Content Include="Content\images\Products\windows8-login-icon-120x120.png" />
+    <Content Include="Content\images\Products\wor1.jpg" />
+    <Content Include="Content\images\Products\wor2.jpg" />
+    <Content Include="Content\images\Products\wor3.jpeg" />
+    <Content Include="Content\images\Products\wor4.jpg" />
+    <Content Include="Content\images\Products\wor5.jpg" />
+    <Content Include="Content\images\Products\wor6.jpg" />
+    <Content Include="Content\images\Products\youtube.png" />
+    <Content Include="Content\images\radius.png" />
+    <Content Include="Content\images\srl.png" />
+    <Content Include="Content\images\star.png" />
+    <Content Include="Content\images\s_arrow.png" />
+    <Content Include="Content\images\uk.png" />
+    <Content Include="Content\images\us.png" />
+    <Content Include="Content\images\wish.png" />
+    <Content Include="Content\images\zoom.png" />
+    <Content Include="Content\js\Controller\CartItem.js" />
+    <Content Include="Content\js\easing.js" />
+    <Content Include="Content\js\jquery.etalage.min.js" />
+    <Content Include="Content\js\jquery.flexisel.js" />
+    <Content Include="Content\js\jquery.jscrollpane.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.wmuSlider.js" />
+    <Content Include="Content\js\megamenu.js" />
+    <Content Include="Content\js\move-top.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\images\arrows.psd" />
+    <Content Include="Content\images\fb.psd" />
+    <Content Include="Content\images\g+.psd" />
+    <Content Include="Content\images\img-sprite.psd" />
+    <Content Include="Content\images\laptop\.gitkeep" />
+    <Content Include="Content\images\radius.psd" />
+    <Content Include="Content\images\social.psd" />
+    <Content Include="Content\images\star.psd" />
+    <Content Include="Content\images\s_arrow.psd" />
+    <Content Include="Content\images\Thumbs.db" />
+    <Content Include="Content\images\tw.psd" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\SanPham\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51113</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44332/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
