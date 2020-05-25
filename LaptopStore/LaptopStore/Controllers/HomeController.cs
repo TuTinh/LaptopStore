@@ -1,4 +1,5 @@
 ﻿using LaptopStore.Models.Entities;
+using LaptopStore.Models.Functions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,21 @@ namespace LaptopStore.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public PartialViewResult SPOfNew()
+{
+            var sp = new SanPhamFunction().SPOfNew();
+            return PartialView("SPOfNew", sp);
+        }
+        public ActionResult Header()
+        {
+            var dm = new DanhMucFunction().GetDanhMucs();
+            return PartialView(dm);
+        }
+        public ActionResult Footer()
+{
+            var dm = new DanhMucFunction().GetDanhMucs();
+            return PartialView(dm);
         }
     }
 }

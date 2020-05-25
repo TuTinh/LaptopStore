@@ -1,4 +1,5 @@
 ﻿using LaptopStore.Models.Entities;
+using LaptopStore.Models.Functions;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,21 @@ namespace LaptopStore.Controllers
             }
             var sp = db.SanPhams.Where(p => p.DanhmucID == id);
             return View(sp);
+        }
+        public ActionResult Header()
+        {
+            var dm = new DanhMucFunction().GetDanhMucs();
+            return PartialView(dm);
+        }
+        public ActionResult Footer()
+        {
+            var dm = new DanhMucFunction().GetDanhMucs();
+            return PartialView(dm);
+        }
+        public ActionResult Danhmuc()
+        {
+            var dm = new DanhMucFunction().GetDanhMucs();
+            return PartialView(dm);
         }
     }
 }
