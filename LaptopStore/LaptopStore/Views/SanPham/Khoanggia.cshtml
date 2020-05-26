@@ -1,0 +1,19 @@
+﻿@using LaptopStore.Models.Entities;
+@model IEnumerable<KhoangGia>
+
+<section class="sky-form">
+    <h4>Hãng</h4>
+    <div class="row row1 scroll-pane">
+        <div class="col col-4">
+            @{
+                foreach (KhoangGia i in Model)
+                {
+                    @* <label class="checkbox" href="/Sanpham/SPViewDM/@i.ID_DM">@i.tendanhmuc</label>/*@
+                    <label class="checkbox">
+                        <a href="/SANPHAM/SPViewKG?cantren=@i.Giaduoi&canduoi=@i.Giatren">@string.Format("{0:##,#}", @i.Giatren) - @string.Format("{0:##,#}", @i.Giaduoi)</a>
+                    </label>
+                }
+            }
+        </div>
+</section>
+

@@ -1,4 +1,6 @@
-﻿using LaptopStore.Models.Entities;
+﻿using LaptopStore.Models.Common;
+using LaptopStore.Models.DAO;
+using LaptopStore.Models.Entities;
 using LaptopStore.Models.Functions;
 using PagedList;
 using System;
@@ -61,6 +63,22 @@ namespace LaptopStore.Controllers
         {
             var dm = new DanhMucFunction().GetDanhMucs();
             return PartialView(dm);
+        }
+        public ActionResult Khoanggia()
+        {
+            var dm = new KGFunction().khoangGias();
+            return PartialView(dm);
+        }
+        [ChildActionOnly]
+        public PartialViewResult HeaderCart()
+        {
+            var cart = Session[CommonConstant.CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = (List<CartItem>)cart;
+            }
+            return PartialView(list);
         }
     }
 }

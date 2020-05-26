@@ -5,9 +5,9 @@ namespace LaptopStore.Models.Entities
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class LaptopStoreDB : DbContext
+    public partial class Model1 : DbContext
     {
-        public LaptopStoreDB()
+        public Model1()
             : base("name=LaptopStoreDB")
         {
         }
@@ -16,9 +16,9 @@ namespace LaptopStore.Models.Entities
         public virtual DbSet<DanhMuc> DanhMucs { get; set; }
         public virtual DbSet<DonHang> DonHangs { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
+        public virtual DbSet<KhoangGia> KhoangGias { get; set; }
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<KhoangGia> KhoangGias { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -41,6 +41,14 @@ namespace LaptopStore.Models.Entities
             modelBuilder.Entity<KhachHang>()
                 .Property(e => e.Mail)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<KhoangGia>()
+                .Property(e => e.Giatren)
+                .HasPrecision(18, 0);
+
+            modelBuilder.Entity<KhoangGia>()
+                .Property(e => e.Giaduoi)
+                .HasPrecision(18, 0);
 
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.Imagelink)

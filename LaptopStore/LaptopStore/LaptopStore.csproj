@@ -149,10 +149,13 @@
     <Compile Include="Models\Entities\DanhMuc.cs" />
     <Compile Include="Models\Entities\DonHang.cs" />
     <Compile Include="Models\Entities\KhachHang.cs" />
+    <Compile Include="Models\Entities\KhoangGia.cs" />
     <Compile Include="Models\Entities\LaptopStoreDB.cs" />
+    <Compile Include="Models\Entities\Model1.cs" />
     <Compile Include="Models\Entities\SanPham.cs" />
     <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Functions\DanhMucFunction.cs" />
+    <Compile Include="Models\Functions\KGFunction.cs" />
     <Compile Include="Models\Functions\SanPhamFunction.cs" />
     <Compile Include="Models\Functions\TaikhoanFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -699,6 +702,10 @@
     <Content Include="Views\SanPham\SanphamView.cshtml" />
     <Content Include="Views\Taikhoan\Create.cshtml" />
     <Content Include="Views\Taikhoan\Login.cshtml" />
+    <Content Include="Views\Shared\HeaderCart.cshtml" />
+    <Content Include="Views\Home\SPOfNew.cshtml" />
+    <Content Include="Views\SanPham\Danhmuc.cshtml" />
+    <Content Include="Views\SanPham\Khoanggia.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
