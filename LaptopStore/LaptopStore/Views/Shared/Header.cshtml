@@ -1,7 +1,7 @@
 ﻿
-@using WebBanLap.Models.Entities;
-@using WebBanLap.Models;
-@model IEnumerable<DANHMUC>
+@using LaptopStore.Models.Entities;
+@using LaptopStore.Models;
+@model IEnumerable<DanhMuc>
 
 @{Html.RenderAction("HeaderCart"); }
 <div class="header-bottom">
@@ -18,7 +18,7 @@
                                 <h4>Hãng laptop </h4>
                                 <ul>
                                     @{
-                                        foreach (DANHMUC item in Model)
+                                        foreach (DanhMuc item in Model)
                                         {
                                             <li><a href="/Sanpham/SPViewDM/@item.ID_DM">@item.tendanhmuc</a></li>
                                         }
