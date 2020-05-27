@@ -151,7 +151,6 @@
     <Compile Include="Models\Entities\KhachHang.cs" />
     <Compile Include="Models\Entities\KhoangGia.cs" />
     <Compile Include="Models\Entities\LaptopStoreDB.cs" />
-    <Compile Include="Models\Entities\Model1.cs" />
     <Compile Include="Models\Entities\SanPham.cs" />
     <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Functions\DanhMucFunction.cs" />
@@ -706,6 +705,9 @@
     <Content Include="Views\Home\SPOfNew.cshtml" />
     <Content Include="Views\SanPham\Danhmuc.cshtml" />
     <Content Include="Views\SanPham\Khoanggia.cshtml" />
+    <Content Include="Views\SanPham\SPViewDM.cshtml" />
+    <Content Include="Views\SanPham\SPViewKG.cshtml" />
+    <Content Include="Views\SanPham\ChitietSP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

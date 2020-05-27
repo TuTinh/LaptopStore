@@ -13,7 +13,7 @@ namespace LaptopStore.Models.Functions
         {
             db = new LaptopStoreDB();
         }
-        public IQueryable<SanPham> sanPhams
+        public IQueryable<SanPham> Sanphams
         {
             get { return db.SanPhams; }
         }

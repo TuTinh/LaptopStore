@@ -1,10 +1,9 @@
 ﻿@using LaptopStore.Models;
 @using LaptopStore.Models.Entities;
 @using LaptopStore.Models.DAO;
-@model PagedList.IPagedList<LaptopStore.Models.Entities.SanPham>
-@using PagedList.Mvc;
+@model IEnumerable<SanPham>
 @{
-    ViewBag.Title = "SanphamView";
+    ViewBag.Title = "SPViewKG";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="login">
@@ -37,9 +36,9 @@
                     </div>
                 </div>
                 <div class="pager">
-                    <ul class="dc_pagination">
-                        @Html.PagedListPager(Model, sotrang => Url.Action("SanphamView", new { page = sotrang }))
-                    </ul>
+                    <div class="dc_pagination">
+                        <a> Danh sách sản phẩm</a>
+                    </div>
                     <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
@@ -104,7 +103,7 @@
                                     }
                                     else
                                     {
-                                        <a href="/SanPham/ChitietSP/@a.SanphamID">
+                                        <a href="/Sanpham/ChitietSP/@a.SanphamID">
                                             <div class="view1 view-fifth1">
                                                 <div class="top_box">
                                                     <h3 class="m_1" href="/">@a.Tensanpham</h3>

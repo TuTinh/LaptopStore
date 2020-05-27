@@ -13,7 +13,7 @@ namespace LaptopStore.Controllers
 {
     public class SanPhamController : Controller
     {
-        private LaptopStoreDB db;
+        private LaptopStoreDB db = new LaptopStoreDB();
         // GET: SanPham
         public ActionResult SanphamView(string keyword, int? page)
         {
@@ -37,7 +37,6 @@ namespace LaptopStore.Controllers
             }
             return View(sp.OrderBy(n => n.SanphamID).ToPagedList(pageNumber, itemsPerPage));
         }
-
         public ActionResult SPViewDM(int? id)
         {
             db = new LaptopStoreDB();
@@ -48,6 +47,35 @@ namespace LaptopStore.Controllers
             }
             var sp = db.SanPhams.Where(p => p.DanhmucID == id);
             return View(sp);
+        }
+        public ActionResult SPViewKG(string keyword, int? page, int? cantren, int? canduoi)
+        {
+            int pageNumber = (page ?? 1);
+            int itemsPerPage = 12;
+            int? ct = cantren;
+            int? cd = canduoi;
+            var db = new SanPhamFunction();
+
+            var products = db.Sanphams.ToList();
+            var pageSize = products.Count / itemsPerPage;
+
+            var sp = products
+                         .Where(p => p.Giabandau > cd & p.Giabandau <= ct)
+                         .OrderBy(p => p.Tensanpham)
+                         .ToList();
+
+            if (!string.IsNullOrEmpty(keyword) && !string.IsNullOrWhiteSpace(keyword))
+            {
+                sp = sp.Where(p => !string.IsNullOrEmpty(p.Tensanpham) && p.Tensanpham.ToLower().Contains(keyword.ToLower()))
+                    .ToList();
+            }
+            return View("SPViewKG", sp.OrderBy(n => n.SanphamID).ToPagedList(pageNumber, itemsPerPage));
+
+        }
+        public ActionResult ChitietSP(int id)
+        {
+            var model = db.SanPhams.Where(x => x.SanphamID == id).FirstOrDefault();
+            return View(model);
         }
         public ActionResult Header()
         {

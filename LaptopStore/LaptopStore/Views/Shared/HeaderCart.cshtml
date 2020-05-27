@@ -14,7 +14,7 @@
             @if (session == null)
             {
                 <ul>
-                    <li class="active"><a href="/Sanpham/SanphamView">Cửa hàng</a></li>
+                    <li class="active"><a href="/SanPham/SanphamView">Cửa hàng</a></li>
                     <li><a href="#">Giỏ hàng</a></li>
                     <li><a href="/Taikhoan/Login">Tài khoản</a></li>
                     <li><a href="/Taikhoan/Create">Đăng ký</a></li>
@@ -23,7 +23,7 @@
             else
             {
                 <ul>
-                    <li class="active"><a href="/Sanpham/SanphamView">Cửa hàng</a></li>
+                    <li class="active"><a href="/SanPham/SanphamView">Cửa hàng</a></li>
                     <li><a href="/Cart/Index">Giỏ hàng: @Model.Count</a></li>
                     <li><a href="#"> @session.username</a></li>
                     <li><a href="#">@Html.ActionLink("Thoát", "Logout", "TAIKHOAN")</a></li>
