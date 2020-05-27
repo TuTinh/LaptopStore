@@ -1,0 +1,247 @@
+﻿
+@using LaptopStore.Models.Entities;
+@using LaptopStore.Models;
+@model IEnumerable<DanhMuc>
+
+@{Html.RenderAction("HeaderCart"); }
+<div class="header-bottom">
+    <div class="wrap">
+        <!-- start header menu -->
+        <ul class="megamenu skyblue">
+            <li><a class="color1" href="/Home/Index">Trang chủ</a></li>
+            <li class="grid">
+                <a class="color2" href="#">Hãng Laptop</a>
+                <div class="megapanel">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Hãng laptop </h4>
+                                <ul>
+                                    @{
+                                        foreach (DanhMuc item in Model)
+                                        {
+                                            <li><a href="/Sanpham/SPViewDM/@item.DanhmucID">@item.Tendanhmuc</a></li>
+                                        }
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <img src="~/Content/images/laptop/Laptop_nav.png" alt="" />
+                        <img src="~/Content/images/laptop/Laptop_nav1.jpg" alt="" />
+                        <img src="~/Content/images/laptop/Laptop_nav4.png" alt="" />
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="color7" href="#">Linh Kiện Laptop</a>
+                <div class="megapanel">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>CPU</h4>
+                                <ul>
+                                    <li><a href="">CPU Intel</a></li>
+                                    <li><a href="">CPU AMD</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>RAM</h4>
+                                <ul>
+                                    <li><a href="">RAM DDR3</a></li>
+                                    <li><a href="">RAM DDR4</a></li>
+                                    <li><a href="">RAM ECC</a></li>
+                                    <li><a href="">RAM NON-ECC</a></li>
+                                    <li><a href="">RAM có LED</a></li>
+                                    <li><a href="">RAM không LED</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>VGA-Card đồ họa</h4>
+                                <ul>
+                                    <li><a href="">Card NVIDIA</a></li>
+                                    <li><a href="">Card AMD</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Ổ cứng</h4>
+                                <ul>
+                                    <li><a href="">Ổ cứng HDD</a></li>
+                                    <li><a href="">Ổ cứng SSD</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Nguồn-Sạc</h4>
+                                <ul>
+                                    <li><a href="">Nguồn theo hãng</a></li>
+                                    <li><a href="">Công suất nguồn</a></li>
+                                    <li><a href="">Kiểu dây nguồn</a></li>
+                                    <li><a href="">Kích cỡ</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Pin Laptop</h4>
+                                <ul>
+                                    <li><a href="">Pin theo hãng</a></li>
+                                    <li><a href="">Dung lượng</a></li>
+                                    <li><a href="">Pin sạc dự phòng</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col2"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="color8" href="#">Màn hình laptop</a>
+                <div class="megapanel">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Kích thước</h4>
+                                <ul>
+                                    <li><a href="">14 inch</a></li>
+                                    <li><a href="">15.6 inch</a></li>
+                                    <li><a href="">17.3 inch</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Tần số quét</h4>
+                                <ul>
+                                    <li><a href="">60 Hz</a></li>
+                                    <li><a href="">120 Hz</a></li>
+                                    <li><a href="">144 Hz</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Độ phân giải</h4>
+                                <ul>
+                                    <li><a href="">HD (1366x768)</a></li>
+                                    <li><a href="">HD+ (1600x900)</a></li>
+                                    <li><a href="">Full HD (1920x1080)</a></li>
+
+                                </ul>
+                            </div>
+
+                            <div class="col1"></div>
+                            <div class="col1"></div>
+                            <div class="col1"></div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="color9" href="#">Phụ kiện</a>
+                <div class="megapanel">
+                    <div class="row">
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Balo-Túi xách</h4>
+                                <ul>
+                                    <li><a href="">Balo</a></li>
+                                    <li><a href="">Túi xách</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Chuột</h4>
+                                <ul>
+                                    <li><a href="">Logitech</a></li>
+                                    <li><a href="">Fuhlen</a></li>
+                                    <li><a href="">Razer</a></li>
+                                    <li><a href="">E-Blue</a></li>
+                                    <li><a href="">Steel-Series</a></li>
+                                    <li><a href="">Phổ thông</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Lót chuột</h4>
+                                <ul>
+                                    <li><a href="">Theo size</a></li>
+                                    <li><a href="">Thông thường</a></li>
+                                    <li><a href="">Có LED</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Tai Nghe</h4>
+                                <ul>
+                                    <li><a href="">Razer</a></li>
+                                    <li><a href="">Kingston</a></li>
+                                    <li><a href="">Logitech</a></li>
+                                    <li><a href="">SteelSeries</a></li>
+                                    <li><a href="">Corsair</a></li>
+                                    <li><a href="">Sennheiser</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Tay cầm </h4>
+                                <ul>
+                                    <li><a href="">Tay cầm PS4</a></li>
+                                    <li><a href="">Tay cầm XBOX One</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col1">
+                            <div class="h_nav">
+                                <h4>Quạt tản nhiệt</h4>
+                                <ul>
+                                    <li><a href="">Cool Cold</a></li>
+                                    <li><a href="">Cooler Master</a></li>
+                                    <li><a href="">CoolingPad</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col2"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                        <div class="col1"></div>
+                    </div>
+                </div>
+            </li>
+            <li><a class="color10" href="#">Cơ sở bán hàng </a></li>
+            <li><a class="color11" href="#">Liên hệ</a></li>
+
+        </ul>
+        <div class="clear"></div>
+    </div>
+</div>

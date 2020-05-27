@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\LaptopStore",
+    "\\LaptopStore\\LaptopStore",
+    "\\LaptopStore\\LaptopStore\\Controllers",
+    "\\LaptopStore\\LaptopStore\\Models",
+    "\\LaptopStore\\LaptopStore\\Models\\Entities",
+    "\\LaptopStore\\LaptopStore\\Models\\Functions",
+    "\\LaptopStore\\LaptopStore\\Views",
+    "\\LaptopStore\\LaptopStore\\Views\\Home"
+  ],
+  "SelectedNode": "\\LaptopStore\\LaptopStore\\Web.config",
+  "PreviewInSolutionExplorer": false
+}

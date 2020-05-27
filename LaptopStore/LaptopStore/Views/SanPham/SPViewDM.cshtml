@@ -1,0 +1,161 @@
+﻿@using LaptopStore.Models;
+@using LaptopStore.Models.Entities;
+@using LaptopStore.Models.DAO;
+@model IEnumerable<SanPham>
+@{
+    ViewBag.Title = "SPViewDM";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="login">
+    <div class="wrap">
+        <div class="rsidebar span_1_of_left">
+            @{
+                Html.RenderAction("Danhmuc");
+            }
+            @{
+                Html.RenderAction("Khoanggia");
+            }
+        </div>
+        <div class="cont span_2_of_3">
+            <div class="mens-toolbar">
+                <div class="sort">
+                    <div class="sort-by">
+                        <label>Xếp theo</label>
+                        <select>
+                            <option value="">
+                                Phổ biến
+                            </option>
+                            <option value="">
+                                Giá :  Từ cao đến thấp
+                            </option>
+                            <option value="">
+                                Giá :  Từ thấp đến cao
+                            </option>
+                        </select>
+                        <a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+                    </div>
+                </div>
+                <div class="pager">
+                    <div class="dc_pagination">
+                        <a> Danh sách sản phẩm - @ViewBag.TenDM</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            @{ var i = 0;
+                List<SanPham> list = new List<SanPham>();
+                foreach (SanPham P in Model)
+                {
+                    list.Add(P);
+                    i++;
+                    if (i % 3 == 0 || i == Model.Count())
+                    {
+                        <div class="box1">
+                            @foreach (SanPham a in list)
+                            {
+                                <div class="col_1_of_single1 span_1_of_single1">
+                                    @{
+                                        var session = (LoginModel)Session[LaptopStore.Models.Common.CommonConstant.USER_SESSION];
+                                    }
+                                    @if (session == null)
+                                    {
+                                        <a href="/Taikhoan/Login">
+                                            <div class="view1 view-fifth1">
+                                                <div class="top_box">
+                                                    <h3 class="m_1" href="/">@a.Tensanpham</h3>
+                                                    <p class="m_2">@a.CPUZ <br />@a.Memory <br />@a.VGA <br />@a.Battery<br />@a.Hedieuhanh</p>
+                                                    <div class="grid_img">
+                                                        <div class="css3"><img src="~/Content/images/Products/@a.Imagelink" alt="" /></div>
+                                                        <div class="mask1">
+                                                            <div class="info">Xem chi tiết</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">@string.Format("{0:##,#}", @a.Giabandau)</div>
+                                                </div>
+                                            </div>
+                                            <span class="rating1">
+                                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                                <label for="rating-input-1-5" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                                <label for="rating-input-1-4" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                                <label for="rating-input-1-3" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                                <label for="rating-input-1-2" class="rating-star"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                                <label for="rating-input-1-1" class="rating-star"></label>&nbsp;
+                                                (45)
+                                            </span>
+                                            <ul class="list2">
+                                                <li>
+                                                    <img src="~/Content/images/plus.png" alt="" />
+                                                    <ul class="icon1 sub-icon1 profile_img">
+                                                        <li>
+                                                            <a class="active-icon c1" href="#">Thêm vào giỏ </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Sanpham/ChitietSP/@a.SanphamID">
+                                            <div class="view1 view-fifth1">
+                                                <div class="top_box">
+                                                    <h3 class="m_1" href="/">@a.Tensanpham</h3>
+                                                    <p class="m_2">@a.CPUZ <br />@a.Memory <br />@a.VGA <br />@a.Battery<br />@a.Hedieuhanh</p>
+                                                    <div class="grid_img">
+                                                        <div class="css3"><img src="~/Content/images/Products/@a.Imagelink" alt="" /></div>
+                                                        <div class="mask1">
+                                                            <div class="info">Xem chi tiết</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price">@string.Format("{0:##,#}", @a.Giabandau)</div>
+                                                </div>
+                                            </div>
+                                            <span class="rating1">
+                                                <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+                                                <label for="rating-input-1-5" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+                                                <label for="rating-input-1-4" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+                                                <label for="rating-input-1-3" class="rating-star1"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+                                                <label for="rating-input-1-2" class="rating-star"></label>
+                                                <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+                                                <label for="rating-input-1-1" class="rating-star"></label>&nbsp;
+                                                (45)
+                                            </span>
+                                            <ul class="list2">
+                                                <li>
+                                                    <img src="~/Content/images/plus.png" alt="" />
+                                                    <ul class="icon1 sub-icon1 profile_img">
+                                                        <li>
+                                                            <a class="active-icon c1" href="/Cart/AddItem?IDSanpham=@a.SanphamID&Quantity=1">Thêm vào giỏ </a>
+
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                            <div class="clear"></div>
+                                        </a>
+                                    }
+
+                                </div>
+                            }
+                        </div>
+                        list = new List<SanPham>();
+                    }
+                }
+            }
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+
+
