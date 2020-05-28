@@ -16,7 +16,7 @@
                 cartList.push({
                     Quantity: $(item).val(),
                     sanpham: {
-                        ID_SP: $(item).attr("data-id")
+                        sanphamID: $(item).attr("data-id")
                     }
                 });
             });
