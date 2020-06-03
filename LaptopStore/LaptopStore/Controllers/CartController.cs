@@ -1,5 +1,6 @@
 ﻿using LaptopStore.Models.Functions;
-using System;using System.Linq;
+using System;
+using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LaptopStore.Models.Entities;
@@ -18,8 +19,7 @@ namespace LaptopStore.Controllers
         public ActionResult Index()
         {
             var cart = (Cart)Session[CartSession];
-
-            var list = new List<CartItem>();
+            List<CartItem> list = new List<CartItem>();
             if (cart != null)
             {
                 list = cart.Lines.ToList();
@@ -31,11 +31,12 @@ namespace LaptopStore.Controllers
         public ActionResult AddItem(int IDSanpham, int Quantity)
         {
             var sanpham = new CartFunction().ViewDetail(IDSanpham);
-            var cart = Session[CartSession];
+            var cart = (Cart)Session[CartSession];
             if (cart != null)
             {
-
-                var list = (List<CartItem>)cart;
+                cart.AddItem(sanpham, 1);
+                /*
+                var list = cart.Lines;
                 if (list.Exists(x => x.sanpham.SanphamID == IDSanpham))
                 {
                     foreach (var item in list)
@@ -52,27 +53,30 @@ namespace LaptopStore.Controllers
                     item.sanpham = sanpham;
                     item.Quantity = Quantity;
                     list.Add(item);
-                }
-                Session[CartSession] = list;
+                }*/
+                Session[CartSession] = cart;
             }
             else
             {
+                cart = new Cart();
+                cart.AddItem(sanpham, 1);
+                /*
                 var item = new CartItem();
                 item.sanpham = sanpham;
                 item.Quantity = Quantity;
                 var list = new List<CartItem>();
-                list.Add(item);
+                list.Add(item);*/
                 //gan vao sesion
-                Session[CartSession] = list;
+                Session[CartSession] = cart;
             }
             return RedirectToAction("Index","Cart");
         }
         public RedirectToRouteResult XoaKhoiGio(int sanphamID)
         {
-            var cart = Session[CartSession];
+            var cart =(Cart) Session[CartSession];
             if (cart != null)
             {
-                var list = (List<CartItem>)cart;
+                var list = cart.Lines.ToList();
                 CartItem itemXoa = list.FirstOrDefault(m => m.sanpham.SanphamID == sanphamID);
                 if (itemXoa != null)
                 {
@@ -91,23 +95,12 @@ namespace LaptopStore.Controllers
                 status = true
             });
         }
-        /*
-        public JsonResult Delete(long id)
-        {
-            var sessionCart = (List<CartItem>)Session[CartSession];
-            sessionCart.RemoveAll(x => x.Product.ID == id);
-            Session[CartSession] = sessionCart;
-            return Json(new
-            {
-                status = true
-            });
-        }*/
         public JsonResult Update(string cartModel)
         {
             var jsonCart = new JavaScriptSerializer().Deserialize<List<CartItem>>(cartModel);
-            var sessionCart = (List<CartItem>)Session[CartSession];
+            var sessionCart = (Cart)Session[CartSession];
 
-            foreach (var item in sessionCart)
+            foreach (var item in sessionCart.Lines)
             {
                 var jsonItem = jsonCart.FirstOrDefault(x => x.sanpham.SanphamID == item.sanpham.SanphamID);
                 if (jsonItem != null)
@@ -121,21 +114,31 @@ namespace LaptopStore.Controllers
                 status = true
             });
         }
-        [HttpPost]
-        public ActionResult Payment(string diachiadd, string mobileadd,  DateTime dateout)
+        [HttpGet]
+        public ActionResult Payment(string diachiadd, string mobileadd,  string dateout)
         {
             // A
             var order = new DonHang();
             order.Ngaylap = DateTime.Now;
             order.Diachigiaohang = diachiadd;
             order.Phone = mobileadd;
-            order.Ngaynhanhang = dateout;
+            DateTime? date = null;
+            DateTime temp;
+
+            if (DateTime.TryParse(dateout, out temp))
+            {
+                if (temp != null)
+                    date = temp;
+            }
+
+            if (date != null)
+                order.Ngaynhanhang = date.Value;
+
 
             //nếu login
-            if (CommonConstant.UserName != null)
+            if (CommonConstant.USERNAME != null)
             {
-                order.Ngaynhanhang = DateTime.Now;
-                order.KhachhangID = CommonConstant.UserName.KhachhangID;
+                order.KhachhangID = new TaikhoanFunction().GetByID(CommonConstant.USERNAME.username);
 
                 var account = new TaikhoanFunction().FindEntity(order.KhachhangID);
                 order.Hotenkhachhang = account.Tenkhachhang;
@@ -190,13 +193,17 @@ namespace LaptopStore.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderCart()
         {
-            var cart = Session[CommonConstant.CartSession];
+            var cart = (Cart)Session[CommonConstant.CartSession];
             var list = new List<CartItem>();
             if (cart != null)
             {
-                list = (List<CartItem>)cart;
+                list = cart.Lines.ToList();
             }
             return PartialView(list);
+        }
+        public ActionResult MuaHangThanhCong()
+        {
+            return View();
         }
     }
 }

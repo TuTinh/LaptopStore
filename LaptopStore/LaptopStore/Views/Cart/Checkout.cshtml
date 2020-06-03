@@ -19,7 +19,6 @@
         display: block;
         font-family: 'Open Sans', sans-serif;
     }
-    }
 </style>
 <div class="login">
     <div class="wrap">
@@ -68,20 +67,20 @@
                 </tbody>
             </table>
         }
-        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Get))
         {
             <div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                     <div class="comments-area">
                         <form>
                             <p>
-                                <input type="text" placeholder="Địa chỉ nhận hàng" id="diachiadd" />
+                                <input type="text" placeholder="Địa chỉ nhận hàng" id="diachiadd" name="diachiadd" />
                             </p>
                             <p>
-                                <input type="text" placeholder="Số điện thoại" id="mobileadd" />
+                                <input type="text" placeholder="Số điện thoại" id="mobileadd" name="mobileadd" />
                             </p>
                             <p>
-                                <input type="date" placeholder="Ngày nhận" id="dateout" />
+                                <input type="text" placeholder="Ngày nhận" id="dateout" name="dateout"/>
                             </p>
 
                         </form>
@@ -91,9 +90,10 @@
                     <div class="Sum">
                         <p>
                             <label>Tổng số tiền : </label>
-                            <a> @ViewBag.TongTien </a>
+                            <a> @ViewBag.TongTien VNĐ </a>
                         </p>
                     </div>
+                    <button type="submit"> <a href="/Cart/MuaHangThanhCong">Thanh toán</a></button>
                 </div>
 
             </div>

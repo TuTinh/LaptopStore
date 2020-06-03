@@ -28,7 +28,7 @@
                 type: 'POST',
                 success: function (res) {
                     if (res.status == true) {
-                        window.location.href = "/gio-hang";
+                        window.location.href = "/Cart/Index";
                     }
                 }
             })

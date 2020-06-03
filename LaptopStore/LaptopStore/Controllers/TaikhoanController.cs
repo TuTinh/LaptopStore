@@ -88,10 +88,11 @@ namespace LaptopStore.Controllers
                 if (result == 1)
                 {
                     var user = KT.GetById(model.username);
-                    var usersession = new LoginModel();
+                    LoginModel usersession = new LoginModel();
                     usersession.username = user.Username;
                     usersession.password = user.Password;
                     Session.Add(CommonConstant.USER_SESSION, usersession);
+                    CommonConstant.USERNAME = usersession;
                     return Redirect("/");
                 }
                 else
@@ -104,11 +105,11 @@ namespace LaptopStore.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderCart()
         {
-            var cart = Session[CommonConstant.CartSession];
+            var cart = (Cart)Session[CommonConstant.CartSession];
             var list = new List<CartItem>();
             if (cart != null)
             {
-                list = (List<CartItem>)cart;
+                list = cart.Lines.ToList();
             }
             return PartialView(list);
         }

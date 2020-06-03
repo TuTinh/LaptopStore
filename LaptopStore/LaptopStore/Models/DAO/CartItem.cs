@@ -56,7 +56,6 @@ namespace LaptopStore.Models.DAO
         {
             get { return lineCollection; }
         }
-
         public int TotalItem()
         {
             var sum = lineCollection.Sum(p => p.Quantity);
