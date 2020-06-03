@@ -43,8 +43,6 @@
                     @Html.LabelFor(model => model.password)
                     @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
                     @Html.PasswordFor(model => model.password)
-
-
                 </div>
 
                 <div class="form-group">
@@ -53,35 +51,30 @@
                     @Html.PasswordFor(model => model.ConfirmPass)
 
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.tentk)
                     @Html.ValidationMessageFor(model => model.tentk, "", new { @class = "text-danger" })
                     @Html.TextBoxFor(model => model.tentk)
 
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.phone)
                     @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
                     @Html.TextBoxFor(model => model.phone)
 
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.mail)
                     @Html.ValidationMessageFor(model => model.mail, "", new { @class = "text-danger" })
                     @Html.TextBoxFor(model => model.mail)
 
                 </div>
-
                 <div class="form-group">
                     @Html.LabelFor(model => model.diachi)
                     @Html.ValidationMessageFor(model => model.diachi, "", new { @class = "text-danger" })
                     @Html.TextBoxFor(model => model.diachi)
 
                 </div>
-
                 <div class="form-group">
                     <button type="submit" class="grey">Đăng ký</button>
                     <p class="terms">Đăng ký tài khoản và đồng ý với <a href="#">Chính sách &amp; Điều khoản sử dụng</a>.</p>

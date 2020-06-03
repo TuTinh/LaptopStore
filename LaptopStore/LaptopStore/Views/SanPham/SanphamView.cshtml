@@ -7,6 +7,53 @@
     ViewBag.Title = "SanphamView";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    .mens-toolbar .sort {
+		width:35.5%;
+        height:100px;
+	}
+    .sort {
+	padding: 35px 10px;
+	width: 35.5%;
+}
+.sort-by form {
+    position: relative;
+}
+.sort-by form input {
+	color: #555;
+	font-size: 1em;
+	background: #ededed none repeat scroll 0 0;
+    border: 0 none;
+    color: #333;
+    font-size: 14px;
+    height: 42px;
+    line-height: 40px;
+    margin: 0;
+    padding-left: 10px;
+    width: 100%;
+    border-radius: 5px;
+    padding-right: 47px;
+}
+.sort-by form a {
+    background: #a5a3a1 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-size: 18px;
+    height: 42px;
+    line-height: 40px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 64px;
+	border-radius: 0 5px 5px 0px;
+	font-size: 15px;;
+}
+.sort-by form a:hover {
+	background: #232323 ;
+	text-decoration: none;
+}
+</style>
 <div class="login">
     <div class="wrap">
         <div class="rsidebar span_1_of_left">
@@ -21,26 +68,11 @@
             <div class="mens-toolbar">
                 <div class="sort">
                     <div class="sort-by">
-                        <label>Xếp theo</label>
-                        <select>
-                            <option value="">
-                                Phổ biến
-                            </option>
-                            <option value="">
-                                Giá :  Từ cao đến thấp
-                            </option>
-                            <option value="">
-                                Giá :  Từ thấp đến cao
-                            </option>
-                        </select>
-                        <a href=""><img src="images/arrow2.gif" alt="" class="v-middle"></a>
+                        <form action="#">
+                            <input type="text" placeholder="Nhập tên sản phẩm ở đây" />
+                            <a href="#">Search</a>
+                        </form>
                     </div>
-                </div>
-                <div class="pager">
-                    <ul class="dc_pagination">
-                        @Html.PagedListPager(Model, sotrang => Url.Action("SanphamView", new { page = sotrang }))
-                    </ul>
-                    <div class="clear"></div>
                 </div>
                 <div class="clear"></div>
             </div>
@@ -152,10 +184,16 @@
                         list = new List<SanPham>();
                     }
                 }
-            }
-        </div>
+                <div class="pager">
+                    @Html.PagedListPager(Model, sotrang => Url.Action("SanphamView", new { page = sotrang }))
 
+                </div>
+            }
+
+
+        </div>
         <div class="clear"></div>
+        x
     </div>
 </div>
 

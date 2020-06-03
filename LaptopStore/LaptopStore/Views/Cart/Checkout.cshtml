@@ -1,13 +1,26 @@
-﻿
-@model List<LaptopStore.Models.DAO.CartItem>
+﻿@model List<LaptopStore.Models.DAO.CartItem>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Checkout";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 @section jsFooter{
     <script src="~/Content/js/Controller/CartItem.js"></script>
 }
-
+<style>
+    .comments-area input[type="date"] {
+        padding: 10px 15px;
+        width: 80%;
+        color: #000;
+        font-size: 0.8125em;
+        border: 1px solid #f0f0f0;
+        background: #fff;
+        outline: none;
+        display: block;
+        font-family: 'Open Sans', sans-serif;
+    }
+    }
+</style>
 <div class="login">
     <div class="wrap">
         @if (Model.Count > 0)
@@ -54,16 +67,39 @@
 
                 </tbody>
             </table>
-            <button id="btnContinue" class="btn">Tiếp tục mua hàng</button>
-            <button id="btnUpdate" class="btn">Cập nhật giỏ hàng</button>
-            <button id="btnDeleteAll" class="btn">Xoá giỏ hàng</button>
-            <button id="btnPayment" class="btn">Thanh toán</button>
         }
-        else
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
         {
-            <span class="alert alert-danger">Chưa có sản phẩm nào trong giỏ hàng</span>
+            <div>
+                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <div class="comments-area">
+                        <form>
+                            <p>
+                                <input type="text" placeholder="Địa chỉ nhận hàng" id="diachiadd" />
+                            </p>
+                            <p>
+                                <input type="text" placeholder="Số điện thoại" id="mobileadd" />
+                            </p>
+                            <p>
+                                <input type="date" placeholder="Ngày nhận" id="dateout" />
+                            </p>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="Sum">
+                        <p>
+                            <label>Tổng số tiền : </label>
+                            <a> @ViewBag.TongTien </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="clear"></div>
         }
-        
+
         <!--<h4 class="title">Giỏ hàng trống</h4>
     <p class="cart">Bạn chưa có sản phẩm nào trong giỏ<br>Ấn<a href="index.html"> vào đây</a> để tiếp tục mua hàng</p> -->
     </div>

@@ -1,27 +1,30 @@
 ﻿using LaptopStore.Models.Functions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System;using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LaptopStore.Models.Entities;
 using LaptopStore.Models.DAO;
 using LaptopStore.Models.Common;
 using System.Web.Script.Serialization;
-
+using System.Collections.Generic;
+using System;
 namespace LaptopStore.Controllers
 {
     public class CartController : Controller
     {
         // GET: Cart
         private const string CartSession = "CartSession";
+        private const string USER_SESSION = "USER_SESSION";
         public ActionResult Index()
         {
-            var cart = Session[CartSession];
+            var cart = (Cart)Session[CartSession];
+
             var list = new List<CartItem>();
             if (cart != null)
             {
-                list = (List<CartItem>)cart;
+                list = cart.Lines.ToList();
+                ViewBag.TongTien = cart.ComputeTotalValue();
+                ViewBag.TotalItem = cart.TotalItem();
             }
             return View(list);
         }
@@ -117,6 +120,62 @@ namespace LaptopStore.Controllers
             {
                 status = true
             });
+        }
+        [HttpPost]
+        public ActionResult Payment(string diachiadd, string mobileadd,  DateTime dateout)
+        {
+            // A
+            var order = new DonHang();
+            order.Ngaylap = DateTime.Now;
+            order.Diachigiaohang = diachiadd;
+            order.Phone = mobileadd;
+            order.Ngaynhanhang = dateout;
+
+            //nếu login
+            if (CommonConstant.UserName != null)
+            {
+                order.Ngaynhanhang = DateTime.Now;
+                order.KhachhangID = CommonConstant.UserName.KhachhangID;
+
+                var account = new TaikhoanFunction().FindEntity(order.KhachhangID);
+                order.Hotenkhachhang = account.Tenkhachhang;
+            }
+            try
+            {
+                var id = new DonhangFunction().Insert(order);
+                var cart = (Cart)Session["CartSession"];
+                var detailDao = new CTDonhangFunction();
+                foreach (var item in cart.Lines)
+                {
+                    var orderDetail = new CTDonHang();
+                    orderDetail.SanphamID = item.sanpham.SanphamID;
+                    orderDetail.DonhangID = id;
+                    orderDetail.Soluong = item.Quantity;
+                    orderDetail.Dongia = (item.sanpham.Giabandau * item.Quantity);
+                    detailDao.Insert(orderDetail);
+                }
+                Session["CartSession"] = null;
+            }
+            catch (Exception ex)
+            {
+                //ghi log
+                return RedirectToAction("Loi"); // action Loi ở đâu?
+            }
+
+            return RedirectToAction("MuaHangThanhCong", "Cart");
+        }
+
+        public ActionResult Checkout()
+        {
+            var cart = (Cart)Session[CartSession];
+            var list = new List<CartItem>();
+            if (cart != null)
+            {
+                list = cart.Lines.ToList();
+                ViewBag.TongTien = cart.ComputeTotalValue();
+                ViewBag.TotalItem = cart.TotalItem();
+            }
+            return View(list);
         }
         public ActionResult Header()
         {

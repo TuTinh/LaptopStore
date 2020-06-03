@@ -50,7 +50,7 @@ namespace LaptopStore.Controllers
                 {
                     var user = new KhachHang();
                     user.Username = model.username;
-                    user.Password = model.password;
+                    user.Password = Encryptor.MD5Hash(model.password);
                     user.Tenkhachhang = model.tentk;
                     user.Phone = model.phone;
                     user.Diachi = model.diachi;

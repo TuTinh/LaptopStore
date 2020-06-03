@@ -142,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Common\CommonConstant.cs" />
+    <Compile Include="Models\Common\Encryptor.cs" />
     <Compile Include="Models\DAO\CartItem.cs" />
     <Compile Include="Models\DAO\CreateModel.cs" />
     <Compile Include="Models\DAO\LoginModel.cs" />
@@ -154,7 +155,9 @@
     <Compile Include="Models\Entities\SanPham.cs" />
     <Compile Include="Models\Entities\sysdiagram.cs" />
     <Compile Include="Models\Functions\CartFunction.cs" />
+    <Compile Include="Models\Functions\CTDonhangFunction.cs" />
     <Compile Include="Models\Functions\DanhMucFunction.cs" />
+    <Compile Include="Models\Functions\DonhangFunction.cs" />
     <Compile Include="Models\Functions\KGFunction.cs" />
     <Compile Include="Models\Functions\SanPhamFunction.cs" />
     <Compile Include="Models\Functions\TaikhoanFunction.cs" />
@@ -711,6 +714,9 @@
     <Content Include="Views\SanPham\ChitietSP.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\SanPham\SPcungDM.cshtml" />
+    <Content Include="Views\Cart\Checkout.cshtml" />
+    <Content Include="Views\Cart\InfoUser.cshtml" />
+    <Content Include="Views\Cart\InfoCart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using LaptopStore.Models.Entities;
 namespace LaptopStore.Models.Common
 {
     public class CommonConstant
@@ -11,5 +11,25 @@ namespace LaptopStore.Models.Common
         public static string SESSION_CREDENTIALS = "SESSION_CREDENTIALS";
         public static string CartSession = "CartSession";
         public static string CurrentCulture { set; get; }
+        public static KhachHang UserName
+        {
+            get
+            {
+                if (HttpContext.Current == null)
+                {
+                    return null;
+                }
+                var sessionVar = HttpContext.Current.Session[USER_SESSION];
+                if (sessionVar != null)
+                {
+                    return sessionVar as KhachHang;
+                }
+                return null;
+            }
+            set
+            {
+                HttpContext.Current.Session[USER_SESSION] = value;
+            }
+        }
     }
 }

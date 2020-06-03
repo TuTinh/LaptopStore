@@ -49,7 +49,6 @@ namespace LaptopStore.Models.Functions
             context.SaveChanges();
             return 1;
         }
-
         public int Login(string userName, string passWord)
         {
             var result = context.KhachHangs.SingleOrDefault(x => x.Username == userName);
@@ -64,7 +63,7 @@ namespace LaptopStore.Models.Functions
                 else return 0;
             }
         }
-        public KhachHang FindEntity(int ID_TK)
+        public KhachHang FindEntity(int? ID_TK)
         {
             KhachHang dbEntry = context.KhachHangs.Find(ID_TK);
             return dbEntry;
@@ -80,6 +79,11 @@ namespace LaptopStore.Models.Functions
         public bool CheckMail(string mail)
         {
             return context.KhachHangs.Count(x => x.Mail == mail) > 0;
+        }
+        public int GetByID(string username)
+        {
+            var KH = context.KhachHangs.SingleOrDefault(x => x.Username == username);
+            return KH.KhachhangID;
         }
 
     }
