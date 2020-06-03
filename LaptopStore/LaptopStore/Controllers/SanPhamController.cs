@@ -108,5 +108,15 @@ namespace LaptopStore.Controllers
             }
             return PartialView(list);
         }
+        public PartialViewResult SPcungDM(int id)
+        {
+            var sp = (from a in db.SanPhams
+                      where (a.SanphamID == id)
+                      select a).SingleOrDefault();
+            var model = (from a in db.SanPhams
+                         where (a.DanhmucID == sp.DanhmucID && a.SanphamID != sp.SanphamID)
+                         select a).OrderByDescending(r => r.SanphamID).Take(7);
+            return PartialView(model);
+        }
     }
 }

@@ -34,7 +34,7 @@
 
                 <div class="price_single">
                     @* class="reducedfrom">17.790.000</span>*@
-                    <span class="actual">        @string.Format("{0:##,#}", Model.Giabandau) VNĐ</span><a href="#">Click để đặt hàng</a>
+                    <span class="actual">        @string.Format("{0:##,#}", Model.Giabandau) VNĐ</span><a href="/Cart/AddItem?IDSanpham=@Model.SanphamID&Quantity=1">Click để đặt hàng</a>
                 </div>
 
                 <div class="btn_form">
@@ -60,9 +60,10 @@
                 </div>
             </div>
             <div class="clear"></div>
-            @*@{
+            @{
                 Html.RenderAction("SPcungDM");
             }
+            @*
             <ul id="flexiselDemo3">
                     <li><img src="images/laptop/laptop1.jpg" /><div class="grid-flex"><a href="#">LG</a><p>17.900</p></div></li>
                     <li><img src="images/laptop/laptop6.jpg" /><div class="grid-flex"><a href="#">Lenovo</a><p>15.900</p></div></li>
