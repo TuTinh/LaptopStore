@@ -100,11 +100,11 @@ namespace LaptopStore.Controllers
         [ChildActionOnly]
         public PartialViewResult HeaderCart()
         {
-            var cart = Session[CommonConstant.CartSession];
+            var cart = (Cart)Session[CommonConstant.CartSession];
             var list = new List<CartItem>();
             if (cart != null)
             {
-                list = (List<CartItem>)cart;
+                list = cart.Lines.ToList();
             }
             return PartialView(list);
         }
