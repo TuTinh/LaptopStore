@@ -114,7 +114,7 @@ namespace LaptopStore.Controllers
                 status = true
             });
         }
-        [HttpGet]
+        [HttpPost]
         public ActionResult Payment(string diachiadd, string mobileadd,  string dateout)
         {
             // A

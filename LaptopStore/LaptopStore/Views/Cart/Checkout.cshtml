@@ -67,7 +67,7 @@
                 </tbody>
             </table>
         }
-        @using (Html.BeginForm("Payment", "Cart", FormMethod.Get))
+        @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
         {
             <div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
@@ -93,7 +93,7 @@
                             <a> @ViewBag.TongTien VNĐ </a>
                         </p>
                     </div>
-                    <button type="submit"> <a href="/Cart/MuaHangThanhCong">Thanh toán</a></button>
+                    <button type="submit">Thanh toán</button>
                 </div>
 
             </div>

@@ -21,7 +21,7 @@ namespace LaptopStore
             );
             routes.MapRoute(
             name: "Cart",
-            url: "Index",
+            url: "gio-hang",
             defaults: new { controller = "Cart", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "LaptopStore.Controller" }
             );

@@ -1,7 +1,12 @@
 ﻿@using LaptopStore.Models.Entities
 @model IEnumerable<SanPham>
 
-
+<style>
+    .grid_img{
+        max-height:300px;
+        max-width:300px;
+    }
+</style>
 @{var i = 0;
     List<SanPham> list = new List<SanPham>();
     foreach (SanPham P in Model)
@@ -18,7 +23,7 @@
                             <div class="view view-fifth">
                                 <div class="top_box">
                                     <h3 class="m_1">@a.Tensanpham</h3>
-                                    <p class="m_2">@a.CPUZ/@a.Memory/@a.Battery/@a.Hedieuhanh</p>
+                                    <p class="m_2">@a.CPUZ<br />@a.Memory<br />@a.Battery<br />@a.Hedieuhanh</p>
                                     <div class="grid_img">
                                         <div class="css3"><img src="~/Content/images/Products/@a.Imagelink" alt="" /></div>
                                         <div class="mask">
