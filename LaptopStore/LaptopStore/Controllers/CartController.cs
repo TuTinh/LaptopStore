@@ -122,6 +122,7 @@ namespace LaptopStore.Controllers
             order.Ngaylap = DateTime.Now;
             order.Diachigiaohang = diachiadd;
             order.Phone = mobileadd;
+            order.Trangthai = true;
             DateTime? date = null;
             DateTime temp;
 
