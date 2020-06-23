@@ -115,7 +115,7 @@ namespace LaptopStore.Controllers
             });
         }
         [HttpPost]
-        public ActionResult Payment(string diachiadd, string mobileadd,  string dateout)
+        public ActionResult Payment(string diachiadd, string mobileadd,  DateTime dateout)
         {
             // A
             var order = new DonHang();
@@ -125,15 +125,16 @@ namespace LaptopStore.Controllers
             order.Trangthai = true;
             DateTime? date = null;
             DateTime temp;
+            order.Ngaynhanhang = dateout;
 
-            if (DateTime.TryParse(dateout, out temp))
-            {
-                if (temp != null)
-                    date = temp;
-            }
+            //if (DateTime.TryParse(dateout, out temp))
+            //{
+            //    if (temp != null)
+            //        date = temp;
+            //}
 
-            if (date != null)
-                order.Ngaynhanhang = date.Value;
+            //if (date != null)
+            //    order.Ngaynhanhang = date.Value;
 
 
             //nếu login
