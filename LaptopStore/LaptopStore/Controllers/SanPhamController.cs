@@ -18,7 +18,7 @@ namespace LaptopStore.Controllers
         public ActionResult SanphamView(string keyword, int? page)
         {
             int pageNumber = (page ?? 1);
-            int itemsPerPage = 9;
+            int itemsPerPage = 6;
 
             db = new LaptopStoreDB();
 

@@ -180,18 +180,18 @@
 
                                 </div>
                             }
+                            <div class="clear"></div>
                         </div>
                         list = new List<SanPham>();
                     }
                 }
-                <div class="pager">
-                    @Html.PagedListPager(Model, sotrang => Url.Action("SanphamView", new { page = sotrang }))
-                </div>
             }
-
+            @Html.PagedListPager(Model, sotrang => Url.Action("SanphamView", new { page = sotrang }))
         </div>
-        <div class="clear"></div>
         
+
+        <div class="clear"></div>
+
     </div>
 </div>
 
