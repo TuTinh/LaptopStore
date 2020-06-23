@@ -69,8 +69,16 @@
                 <div class="sort">
                     <div class="sort-by">
                         <form action="#">
-                            <input type="text" placeholder="Nhập tên sản phẩm ở đây" />
-                            <a href="#">Search</a>
+                            @*<input type="text" placeholder="Nhập tên sản phẩm ở đây" />
+                            <a href="#">Search</a>*@
+                            @using (Html.BeginForm("SanphamView", "SanPham", FormMethod.Get))
+                            {
+
+                                @Html.TextBox("Keyword", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào tên sản phẩm ở đây" })
+                            <a href="#"><i class="fa fa-search"></i>Tìm kiếm</a>
+                                @*<button type="submit">tìm kiếm</button>*@
+
+                            }
                         </form>
                     </div>
                 </div>
