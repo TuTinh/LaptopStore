@@ -22,5 +22,10 @@ namespace LaptopStore.Models.Functions
             var spnew = db.SanPhams.OrderByDescending(p => p.SanphamID).Take(6);
             return spnew;
         }
+        public SanPham FindEntity(int ID_SP)
+        {
+            SanPham dbEntry = db.SanPhams.Find(ID_SP);
+            return dbEntry;
+        }
     }
 }

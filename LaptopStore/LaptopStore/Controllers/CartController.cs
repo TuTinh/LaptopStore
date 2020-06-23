@@ -22,8 +22,7 @@ namespace LaptopStore.Controllers
             if (cart != null)
             {
                 list = cart.Lines.ToList();
-                ViewBag.TongTien = cart.ComputeTotalValue();
-                ViewBag.TotalItem = cart.TotalItem();
+                
             }
             return View(list);
         }
@@ -34,55 +33,37 @@ namespace LaptopStore.Controllers
             if (cart != null)
             {
                 cart.AddItem(sanpham, 1);
-                /*
-                var list = cart.Lines;
-                if (list.Exists(x => x.sanpham.SanphamID == IDSanpham))
-                {
-                    foreach (var item in list)
-                    {
-                        if (item.sanpham.SanphamID == IDSanpham)
-                        {
-                            item.Quantity += Quantity;
-                        }
-                    }
-                }
-                else
-                {
-                    var item = new CartItem();
-                    item.sanpham = sanpham;
-                    item.Quantity = Quantity;
-                    list.Add(item);
-                }*/
                 Session[CartSession] = cart;
             }
             else
             {
                 cart = new Cart();
                 cart.AddItem(sanpham, 1);
-                /*
-                var item = new CartItem();
-                item.sanpham = sanpham;
-                item.Quantity = Quantity;
-                var list = new List<CartItem>();
-                list.Add(item);*/
-                //gan vao sesion
                 Session[CartSession] = cart;
             }
             return RedirectToAction("Index","Cart");
         }
         public RedirectToRouteResult XoaKhoiGio(int sanphamID)
         {
-            var cart =(Cart)Session[CartSession];
+            var product = new SanPhamFunction().FindEntity(sanphamID); ;
+            var cart = (Cart)Session[CartSession];
             if (cart != null)
             {
-                var list = cart.Lines.ToList();
-                CartItem itemXoa = list.FirstOrDefault(m => m.sanpham.SanphamID == sanphamID);
-                if (itemXoa != null)
-                {
-                    list.Remove(itemXoa);
-                }
-                Session[CartSession] = list;
+                cart.RemoveLine(product);
+                //Gán vào session
+                Session[CartSession] = cart;
             }
+            //var cart =(Cart)Session[CartSession];
+            //if (cart != null)
+            //{
+            //    var list = cart.Lines.ToList();
+            //    CartItem itemXoa = list.FirstOrDefault(m => m.sanpham.SanphamID == sanphamID);
+            //    if (itemXoa != null)
+            //    {
+            //        list.Remove(itemXoa);
+            //    }
+            //    Session[CartSession] = list;
+            //}
             // List<CartItemModel> giohang = Session["CartSession"] as List<CartItemModel>;
             return RedirectToAction("Index", "Cart");
         }
