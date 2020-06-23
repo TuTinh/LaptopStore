@@ -52,7 +52,7 @@ namespace LaptopStore.Models.DAO
             lineCollection.Clear();
         }
 
-        public IEnumerable<CartItem> Lines
+        public IEnumerable <CartItem> Lines
         {
             get { return lineCollection; }
         }

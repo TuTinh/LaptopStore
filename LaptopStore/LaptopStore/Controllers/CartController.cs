@@ -14,12 +14,11 @@ namespace LaptopStore.Controllers
     public class CartController : Controller
     {
         // GET: Cart
-        private const string CartSession = "CartSession";
         private const string USER_SESSION = "USER_SESSION";
         public ActionResult Index()
         {
+            var list = new List<CartItem>();
             var cart = (Cart)Session[CartSession];
-            List<CartItem> list = new List<CartItem>();
             if (cart != null)
             {
                 list = cart.Lines.ToList();
@@ -73,7 +72,7 @@ namespace LaptopStore.Controllers
         }
         public RedirectToRouteResult XoaKhoiGio(int sanphamID)
         {
-            var cart =(Cart) Session[CartSession];
+            var cart =(Cart)Session[CartSession];
             if (cart != null)
             {
                 var list = cart.Lines.ToList();
@@ -85,8 +84,10 @@ namespace LaptopStore.Controllers
                 Session[CartSession] = list;
             }
             // List<CartItemModel> giohang = Session["CartSession"] as List<CartItemModel>;
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Cart");
         }
+        private const string CartSession = "CartSession";
+
         public JsonResult DeleteAll()
         {
             Session[CartSession] = null;
