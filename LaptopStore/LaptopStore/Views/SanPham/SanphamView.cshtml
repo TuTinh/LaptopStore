@@ -68,11 +68,17 @@
             <div class="mens-toolbar">
                 <div class="sort">
                     <div class="sort-by">
-                        <form action="#">
+                        @*<form action="#">
                             <input type="text" placeholder="Nhập tên sản phẩm ở đây" />
                             <a href="#">Search</a>
-                        </form>
-                    </div>
+                        </form>*@
+                        @using (Html.BeginForm("SanphamView", "SanPham", FormMethod.Get))
+                        {
+
+                            @Html.TextBox("Keyword", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào tên sản phẩm ở đây" })
+                            <a href="#"><i class="fa fa-search"></i>Tìm kiếm</a>
+                        }
+                        </div>
                 </div>
                 <div class="clear"></div>
             </div>
