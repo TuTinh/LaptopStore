@@ -6,7 +6,25 @@
     ViewBag.Title = "ChitietSP";
     Layout = "~/Views/Shared/_Lauout_Chitiet.cshtml";
 }
-
+<style>
+    .btn_form form a {
+        font-family: 'Open Sans', sans-serif;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        display: inline-block;
+        font-size: 0.85em;
+        padding: 10px 34px;
+        background: #555;
+        border-bottom: 4px solid #1D1C1C;
+        color: #FFF;
+        text-transform: uppercase;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+</style>
 <div class="single">
     <div class="wrap">
         <div class="rsidebar span_1_of_left">
@@ -162,7 +180,8 @@
                     <div class="btn_form">
                         <h3>        </h3>
                         <form>
-                            <input type="submit" value="Mua ngay" title="" href="/Cart/AddItem?IDSanpham=@Model.SanphamID&Quantity=1">
+                            @*<input type="submit" value="Mua ngay" title="" href="/Cart/AddItem?IDSanpham=@Model.SanphamID&Quantity=1">*@
+                            <a href="/Cart/AddItem?IDSanpham=@Model.SanphamID&Quantity=1">Mua ngay</a>
                         </form>
                     </div>
                     <ul class="add-to-links">
