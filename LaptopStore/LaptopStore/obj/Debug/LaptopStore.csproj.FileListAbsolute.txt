@@ -171,3 +171,9 @@ E:\TT Nhóm\LaptopStore\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.Cor
 E:\TT Nhóm\LaptopStore\LaptopStore\LaptopStore\obj\Debug\LaptopStore.csproj.CopyComplete
 E:\TT Nhóm\LaptopStore\LaptopStore\LaptopStore\obj\Debug\LaptopStore.dll
 E:\TT Nhóm\LaptopStore\LaptopStore\LaptopStore\obj\Debug\LaptopStore.pdb
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Net.Http.Formatting.dll
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Web.Http.dll
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Web.Http.WebHost.dll
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Net.Http.Formatting.xml
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Web.Http.xml
+D:\TaiLieuKi2Nam3\TT-Nhom\LaptopStore\LaptopStore\LaptopStore\bin\System.Web.Http.WebHost.xml

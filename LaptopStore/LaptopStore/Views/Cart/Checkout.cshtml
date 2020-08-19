@@ -69,7 +69,47 @@
         }
         @using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
         {
-            <div>
+            if (@ViewBag.TongTien <= 50000000)
+            {
+                <div>
+                    <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                        <div class="comments-area">
+                            <form>
+                                <p>
+                                    <input type="text" placeholder="Địa chỉ nhận hàng" id="diachiadd" name="diachiadd" />
+                                </p>
+                                <p>
+                                    <input type="text" placeholder="Số điện thoại" id="mobileadd" name="mobileadd" />
+                                </p>
+                                <p>
+                                    <input type="date" value="@DateTime.Now.ToString("yyyy/MM/dd")" placeholder="Ngày nhận" id="dateout" name="dateout" />
+                                </p>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                        <div class="Sum">
+                            <p>
+                                <label>Tổng số tiền : </label>
+                                <a> @ViewBag.TongTien VNĐ </a>
+                            </p>
+                        </div>
+                        <button type="submit">Thanh toán</button>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            }
+            else
+            {
+    <div>
+        <a> Giỏ hàng đã đến giới hạn</a>
+        <a> Yêu cầu xóa bớt sản phẩm</a>
+    </div>
+                <div class="clear"></div>
+            }
+            @*<div>
                 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                     <div class="comments-area">
                         <form>
@@ -80,7 +120,7 @@
                                 <input type="text" placeholder="Số điện thoại" id="mobileadd" name="mobileadd" />
                             </p>
                             <p>
-                                <input type="date" value="@DateTime.Now.ToString("yyyy/MM/dd")" placeholder="Ngày nhận" id="dateout" name="dateout"/>
+                                <input type="date" value="@DateTime.Now.ToString("yyyy/MM/dd")" placeholder="Ngày nhận" id="dateout" name="dateout" />
                             </p>
 
                         </form>
@@ -97,7 +137,7 @@
                 </div>
 
             </div>
-            <div class="clear"></div>
+            <div class="clear"></div>*@
         }
 
         <!--<h4 class="title">Giỏ hàng trống</h4>
