@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LaptopStoreModelStoreContainer" CdmEntityContainer="LaptopStoreDB">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="LaptopStoreModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="NameAd" ColumnName="NameAd" />
+          <ScalarProperty Name="PassAd" ColumnName="PassAd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTDonHangs">
+      <EntityTypeMapping TypeName="LaptopStoreModel.CTDonHang">
+        <MappingFragment StoreEntitySet="CTDonHang">
+          <ScalarProperty Name="CTDonhangID" ColumnName="CTDonhangID" />
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="DonhangID" ColumnName="DonhangID" />
+          <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+          <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTPhieuNhaps">
+      <EntityTypeMapping TypeName="LaptopStoreModel.CTPhieuNhap">
+        <MappingFragment StoreEntitySet="CTPhieuNhap">
+          <ScalarProperty Name="CTphieunhapID" ColumnName="CTphieunhapID" />
+          <ScalarProperty Name="PhieunhapID" ColumnName="PhieunhapID" />
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="Soluongnhap" ColumnName="Soluongnhap" />
+          <ScalarProperty Name="Dongia" ColumnName="Dongia" />
+          <ScalarProperty Name="Thanhtien" ColumnName="Thanhtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTPhieuXuats">
+      <EntityTypeMapping TypeName="LaptopStoreModel.CTPhieuXuat">
+        <MappingFragment StoreEntitySet="CTPhieuXuat">
+          <ScalarProperty Name="CTPhieuxuatID" ColumnName="CTPhieuxuatID" />
+          <ScalarProperty Name="PhieuxuatID" ColumnName="PhieuxuatID" />
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="DonhangID" ColumnName="DonhangID" />
+          <ScalarProperty Name="Soluongxuat" ColumnName="Soluongxuat" />
+          <ScalarProperty Name="Giaban" ColumnName="Giaban" />
+          <ScalarProperty Name="Thanhtien" ColumnName="Thanhtien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DanhMucs">
+      <EntityTypeMapping TypeName="LaptopStoreModel.DanhMuc">
+        <MappingFragment StoreEntitySet="DanhMuc">
+          <ScalarProperty Name="DanhmucID" ColumnName="DanhmucID" />
+          <ScalarProperty Name="Tendanhmuc" ColumnName="Tendanhmuc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DonHangs">
+      <EntityTypeMapping TypeName="LaptopStoreModel.DonHang">
+        <MappingFragment StoreEntitySet="DonHang">
+          <ScalarProperty Name="DonhangID" ColumnName="DonhangID" />
+          <ScalarProperty Name="KhachhangID" ColumnName="KhachhangID" />
+          <ScalarProperty Name="Ngaylap" ColumnName="Ngaylap" />
+          <ScalarProperty Name="Ngaynhanhang" ColumnName="Ngaynhanhang" />
+          <ScalarProperty Name="Diachigiaohang" ColumnName="Diachigiaohang" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Trangthai" ColumnName="Trangthai" />
+          <ScalarProperty Name="Hotenkhachhang" ColumnName="Hotenkhachhang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HinhThucThanhToans">
+      <EntityTypeMapping TypeName="LaptopStoreModel.HinhThucThanhToan">
+        <MappingFragment StoreEntitySet="HinhThucThanhToan">
+          <ScalarProperty Name="HinhthucthanhtoanID" ColumnName="HinhthucthanhtoanID" />
+          <ScalarProperty Name="Tenhinhthuctt" ColumnName="Tenhinhthuctt" />
+          <ScalarProperty Name="Mota" ColumnName="Mota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="LaptopStoreModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="KhachhangID" ColumnName="KhachhangID" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Tenkhachhang" ColumnName="Tenkhachhang" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+          <ScalarProperty Name="PhanquyenID" ColumnName="PhanquyenID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhoangGias">
+      <EntityTypeMapping TypeName="LaptopStoreModel.KhoangGia">
+        <MappingFragment StoreEntitySet="KhoangGia">
+          <ScalarProperty Name="KhoanggiaID" ColumnName="KhoanggiaID" />
+          <ScalarProperty Name="Giatren" ColumnName="Giatren" />
+          <ScalarProperty Name="Giaduoi" ColumnName="Giaduoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaCungCaps">
+      <EntityTypeMapping TypeName="LaptopStoreModel.NhaCungCap">
+        <MappingFragment StoreEntitySet="NhaCungCap">
+          <ScalarProperty Name="NhacungcapID" ColumnName="NhacungcapID" />
+          <ScalarProperty Name="Tennhacungcap" ColumnName="Tennhacungcap" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanQuyens">
+      <EntityTypeMapping TypeName="LaptopStoreModel.PhanQuyen">
+        <MappingFragment StoreEntitySet="PhanQuyen">
+          <ScalarProperty Name="PhanquyenID" ColumnName="PhanquyenID" />
+          <ScalarProperty Name="Tenquyen" ColumnName="Tenquyen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuNhaps">
+      <EntityTypeMapping TypeName="LaptopStoreModel.PhieuNhap">
+        <MappingFragment StoreEntitySet="PhieuNhap">
+          <ScalarProperty Name="PhieunhapID" ColumnName="PhieunhapID" />
+          <ScalarProperty Name="TaikhoanID" ColumnName="TaikhoanID" />
+          <ScalarProperty Name="NhacungcapID" ColumnName="NhacungcapID" />
+          <ScalarProperty Name="Ngaynhap" ColumnName="Ngaynhap" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuXuats">
+      <EntityTypeMapping TypeName="LaptopStoreModel.PhieuXuat">
+        <MappingFragment StoreEntitySet="PhieuXuat">
+          <ScalarProperty Name="PhieuxuatID" ColumnName="PhieuxuatID" />
+          <ScalarProperty Name="TaikhoanID" ColumnName="TaikhoanID" />
+          <ScalarProperty Name="Ngayxuat" ColumnName="Ngayxuat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanPhams">
+      <EntityTypeMapping TypeName="LaptopStoreModel.SanPham">
+        <MappingFragment StoreEntitySet="SanPham">
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="DanhmucID" ColumnName="DanhmucID" />
+          <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
+          <ScalarProperty Name="Giabandau" ColumnName="Giabandau" />
+          <ScalarProperty Name="Trongluong" ColumnName="Trongluong" />
+          <ScalarProperty Name="Mausac" ColumnName="Mausac" />
+          <ScalarProperty Name="Imagelink" ColumnName="Imagelink" />
+          <ScalarProperty Name="Memory" ColumnName="Memory" />
+          <ScalarProperty Name="Hedieuhanh" ColumnName="Hedieuhanh" />
+          <ScalarProperty Name="VGA" ColumnName="VGA" />
+          <ScalarProperty Name="CPUZ" ColumnName="CPUZ" />
+          <ScalarProperty Name="Battery" ColumnName="Battery" />
+          <ScalarProperty Name="Phukiendikem" ColumnName="Phukiendikem" />
+          <ScalarProperty Name="Chedobaohanh" ColumnName="Chedobaohanh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LaptopStoreModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="LaptopStoreModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="LaptopStoreModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="LaptopStoreModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="LaptopStoreModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LaptopStoreModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="LaptopStoreModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LaptopStoreModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="LaptopStoreModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="LaptopStoreModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="ThongKeSPTheoTG" FunctionName="LaptopStoreModel.Store.ThongKeSPTheoTG">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LaptopStoreModel.ThongKeSPTheoTG_Result">
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="DanhmucID" ColumnName="DanhmucID" />
+          <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
+          <ScalarProperty Name="Giabandau" ColumnName="Giabandau" />
+          <ScalarProperty Name="Trongluong" ColumnName="Trongluong" />
+          <ScalarProperty Name="Mausac" ColumnName="Mausac" />
+          <ScalarProperty Name="Imagelink" ColumnName="Imagelink" />
+          <ScalarProperty Name="Memory" ColumnName="Memory" />
+          <ScalarProperty Name="Hedieuhanh" ColumnName="Hedieuhanh" />
+          <ScalarProperty Name="VGA" ColumnName="VGA" />
+          <ScalarProperty Name="CPUZ" ColumnName="CPUZ" />
+          <ScalarProperty Name="Battery" ColumnName="Battery" />
+          <ScalarProperty Name="Phukiendikem" ColumnName="Phukiendikem" />
+          <ScalarProperty Name="Chedobaohanh" ColumnName="Chedobaohanh" />
+          <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ThongKeSPTheoThang" FunctionName="LaptopStoreModel.Store.ThongKeSPTheoThang">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="LaptopStoreModel.ThongKeSPTheoThang_Result">
+          <ScalarProperty Name="SanphamID" ColumnName="SanphamID" />
+          <ScalarProperty Name="DanhmucID" ColumnName="DanhmucID" />
+          <ScalarProperty Name="Tensanpham" ColumnName="Tensanpham" />
+          <ScalarProperty Name="Giabandau" ColumnName="Giabandau" />
+          <ScalarProperty Name="Trongluong" ColumnName="Trongluong" />
+          <ScalarProperty Name="Mausac" ColumnName="Mausac" />
+          <ScalarProperty Name="Imagelink" ColumnName="Imagelink" />
+          <ScalarProperty Name="Memory" ColumnName="Memory" />
+          <ScalarProperty Name="Hedieuhanh" ColumnName="Hedieuhanh" />
+          <ScalarProperty Name="VGA" ColumnName="VGA" />
+          <ScalarProperty Name="CPUZ" ColumnName="CPUZ" />
+          <ScalarProperty Name="Battery" ColumnName="Battery" />
+          <ScalarProperty Name="Phukiendikem" ColumnName="Phukiendikem" />
+          <ScalarProperty Name="Chedobaohanh" ColumnName="Chedobaohanh" />
+          <ScalarProperty Name="Soluong" ColumnName="Soluong" />
+          <ScalarProperty Name="Tendanhmuc" ColumnName="Tendanhmuc" />
+          <ScalarProperty Name="Hotenkhachhang" ColumnName="Hotenkhachhang" />
+          <ScalarProperty Name="Diachigiaohang" ColumnName="Diachigiaohang" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

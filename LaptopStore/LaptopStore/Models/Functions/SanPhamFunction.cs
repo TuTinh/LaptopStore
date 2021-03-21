@@ -17,6 +17,10 @@ namespace LaptopStore.Models.Functions
         {
             return db.SanPhams.ToList();
         }
+        public List<ThongKeSPTheoThang_Result> GetSPTK(int a, int b)
+        {
+            return db.ThongKeSPTheoThang(a, b).ToList();
+        }
         public IQueryable<SanPham> Sanphams
         {
             get { return db.SanPhams; }

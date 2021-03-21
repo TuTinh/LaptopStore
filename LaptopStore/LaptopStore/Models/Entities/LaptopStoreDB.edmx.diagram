@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="63abe14eb50d45ae9dfd456952acf0c9" Name="Diagram1">
+        <EntityTypeShape EntityType="LaptopStoreModel.Admin" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.CTDonHang" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.CTPhieuNhap" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.CTPhieuXuat" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.DanhMuc" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.DonHang" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.HinhThucThanhToan" Width="1.5" PointX="7.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.KhachHang" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.KhoangGia" Width="1.5" PointX="5.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.NhaCungCap" Width="1.5" PointX="3.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.PhanQuyen" Width="1.5" PointX="1.5" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.PhieuNhap" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.PhieuXuat" Width="1.5" PointX="3" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.SanPham" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="LaptopStoreModel.sysdiagram" Width="1.5" PointX="7.75" PointY="9" IsExpanded="true" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTDonHang_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTDonHang_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTPhieuNhap_PhieuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTPhieuNhap_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTPhieuXuat_DonHang" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTPhieuXuat_PhieuXuat" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_CTPhieuXuat_SanPham" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_SanPham_DanhMuc" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_DonHang_KhachHang" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_KhachHang_PhanQuyen" ManuallyRouted="false" />
+        <AssociationConnector Association="LaptopStoreModel.FK_PhieuNhap_NhaCungCap" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ADMIN/Views/Shared/_Layout.cshtml";
+}
+@using LaptopStore.Models.Entities;
+@model IEnumerable<ThongKeSPTheoThang_Result>
+
+
+<section class="wrapper site-min-height">
+    <!-- page start-->
+    <section class="panel">
+        <header class="panel-heading">
+            Bảng thống kê sản phẩm 
+        </header>
+        <div class="panel-body">
+            <div class="adv-table editable-table ">
+                <div class="clearfix">
+                    <div class="btn-group">
+                        @using (Html.BeginForm("DownloadExcel", "ThongKeSPTheoTG", FormMethod.Post))
+                        {
+                            @Html.TextBox("i", "", htmlAttributes: new { @class = "TextBoxTimKiem", @placeholder = "Nhập vào quý vào đây" })
+                            <input type="submit" value="Xuất File Excel" class="button" />
+                        }
+                    </div>
+                </div>
+                <div class="space15"></div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Mã sản phẩm</th>
+                            <th>Tên danh mục</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Họ tên khách hàng</th>
+                            <th>Địa chỉ giao hàng</th>
+                            <th>Số lượng dã bán</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            if (Model == null)
+                            {
+                                
+                            }
+                            else
+                            {
+                                foreach (ThongKeSPTheoThang_Result i in Model)
+                                {
+                                    <tr class="">
+                                        <td>@i.SanphamID</td>
+                                        <td>@i.Tendanhmuc</td>
+                                        <td>@i.Tensanpham</td>
+                                        <td>@i.Giabandau</td>
+                                        <td>@i.Hotenkhachhang</td>
+                                        <td>@i.Diachigiaohang</td>
+                                        <td class="center">@i.Soluong</td>
+                                    </tr>
+                                }
+                            }
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- page end-->
+</section>

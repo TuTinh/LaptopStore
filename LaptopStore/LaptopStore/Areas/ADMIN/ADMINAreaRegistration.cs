@@ -17,7 +17,7 @@ namespace LaptopStore.Areas.ADMIN
             context.MapRoute(
                 "ADMIN_default",
                 "ADMIN/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller = "HomeAdmin",action = "Index", id = UrlParameter.Optional }
             );
         }
     }

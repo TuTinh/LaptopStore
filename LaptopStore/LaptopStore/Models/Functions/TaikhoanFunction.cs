@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LaptopStore.Models.Common;
 using LaptopStore.Models.Entities;
 namespace LaptopStore.Models.Functions
 {
@@ -15,6 +16,22 @@ namespace LaptopStore.Models.Functions
         public IQueryable<KhachHang> KhachHangs
         {
             get { return context.KhachHangs; }
+        }
+        public List<KhachHang> GetKhachHangs()
+        {
+            return context.KhachHangs.Where(x=>x.PhanquyenID ==2).ToList();
+        }
+        public int SL_KH()
+        {
+            return context.KhachHangs.Count(x=>x.PhanquyenID == 2 );
+        }
+        public int SL_DH()
+        {
+            return context.DonHangs.Count();
+        }
+        public int SL_SP()
+        {
+            return context.SanPhams.Count();
         }
         public int Insert(KhachHang model)
         {
@@ -58,8 +75,13 @@ namespace LaptopStore.Models.Functions
             }
             else
             {
-                if (result.Password == passWord)
-                    return 1;
+                if (result.Password == Encryptor.MD5Hash(passWord) )
+                {
+                    if(result.PhanquyenID == 2)
+                        return 1;
+                    else
+                        return 2;
+                }
                 else return 0;
             }
         }

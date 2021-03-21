@@ -8,6 +8,8 @@ using LaptopStore.Models.Entities;
 using LaptopStore.Models.Common;
 using LaptopStore.Models.Functions;
 using LaptopStore.Models.DAO;
+using CaptchaMvc.HtmlHelpers;
+
 namespace LaptopStore.Controllers
 {
     public class TaikhoanController : Controller
@@ -50,22 +52,38 @@ namespace LaptopStore.Controllers
                 {
                     var user = new KhachHang();
                     user.Username = model.username;
-                    //user.Password = Encryptor.MD5Hash(model.password);
-                    user.Password = model.password;
+                    user.Password = Encryptor.MD5Hash(model.password);
                     user.Tenkhachhang = model.tentk;
                     user.Phone = model.phone;
                     user.Diachi = model.diachi;
                     user.Mail = model.mail;
-                    var result = KT.Insert(user);
-                    if (result > 0)
+                    user.PhanquyenID = 2;
+                    if (this.IsCaptchaValid("Validate your captcha"))
                     {
-                        ViewBag.Success = "Đăng kí thành công !!!";
-                        model = new CreateModel();
+                        ViewBag.ErrMessage = "Validation Messgae";
+                        var result = KT.Insert(user);
+                        if (result > 0)
+                        {
+                            if (this.IsCaptchaValid("Validate your captcha"))
+                            {
+                                ViewBag.ErrMessage = "Validation Messgae";
+                            }
+                            else
+                            {
+                                ViewBag.Success = "Đăng kí thành công !!!";
+                                model = new CreateModel();
+                            }
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Đăng kí không thành công");
+                        }
                     }
                     else
                     {
                         ModelState.AddModelError("", "Đăng kí không thành công");
                     }
+                    
                 }
             }
             return View(model);
@@ -77,6 +95,11 @@ namespace LaptopStore.Controllers
         public ActionResult Logout()
         {
             Session[CommonConstant.USER_SESSION] = null;
+            return Redirect("/");
+        }
+        public ActionResult LogoutAd()
+        {
+            Session[CommonConstant.ADM_SESSION] = null;
             return Redirect("/");
         }
         [HttpPost]
@@ -98,7 +121,20 @@ namespace LaptopStore.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Tài khoản không tồn tại");
+                    if (result == 2)
+                    {
+                        var user = KT.GetById(model.username);
+                        LoginModel adminsession = new LoginModel();
+                        adminsession.username = user.Username;
+                        adminsession.password = user.Password;
+                        Session.Add(CommonConstant.ADM_SESSION, adminsession);
+                        CommonConstant.ADMIN = adminsession;
+                        return Redirect("/admin/");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Tài khoản không tồn tại");
+                    }
                 }
             }
             return View(model);

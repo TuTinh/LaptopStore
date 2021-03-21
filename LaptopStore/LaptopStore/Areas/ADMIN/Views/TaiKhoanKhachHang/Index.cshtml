@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/ADMIN/Views/Shared/_Layout.cshtml";
+}
+
+@using LaptopStore.Models.Entities;
+@model IEnumerable<KhachHang>
+
+
+<section class="wrapper site-min-height">
+    <!-- page start-->
+    <section class="panel">
+        <header class="panel-heading">
+            Bảng khách hàng
+        </header>
+        <div class="panel-body">
+            <div class="adv-table editable-table ">
+                
+                <div class="space15"></div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                    <thead>
+                        <tr>
+                            <th>Mã tài khoản</th>
+                            <th>Tên tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Tên khách hàng</th>
+                            <th>Số điện thoại</th>
+                            <th>Mail</th>
+                            <th>Địa chỉ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (KhachHang i in Model)
+                            {
+                                <tr class="">
+                                    <td>@i.KhachhangID</td>
+                                    <td class="center">@i.Username</td>
+                                    <td class="center">@i.Password</td>
+                                    <td class="center">@i.Tenkhachhang</td>
+                                    <td class="center">@i.Phone</td>
+                                    <td class="center">@i.Mail</td>
+                                    <td class="center">@i.Diachi</td>
+                                </tr>
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <!-- page end-->
+</section>

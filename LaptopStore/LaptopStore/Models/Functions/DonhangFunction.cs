@@ -22,5 +22,10 @@ namespace LaptopStore.Models.Functions
             db.SaveChanges();
             return order.DonhangID;
         }
+        public DonHang FindEntity(int ID_DH)
+        {
+            DonHang dbEntry = db.DonHangs.Find(ID_DH);
+            return dbEntry;
+        }
     }
 }

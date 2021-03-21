@@ -45,20 +45,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <HintPath>..\packages\CaptchaMvc.Mvc5.1.5.0\lib\net45-full\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EPPlus, Version=5.6.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.6.0\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
     </Reference>
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -66,6 +79,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -145,10 +159,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\ADMIN\ADMINAreaRegistration.cs" />
-    <Compile Include="Areas\ADMIN\Controllers\DanhMucController.cs" />
-    <Compile Include="Areas\ADMIN\Controllers\DonHangController.cs" />
-    <Compile Include="Areas\ADMIN\Controllers\HomeController.cs" />
-    <Compile Include="Areas\ADMIN\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\DanhMucAdminController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\DonHangAdminController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\HomeAdminController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\SanPhamAdminController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\TaiKhoanKhachHangController.cs" />
+    <Compile Include="Areas\ADMIN\Controllers\ThongKeSPTheoTGController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocController.cs" />
@@ -162,14 +178,78 @@
     <Compile Include="Models\DAO\CartItem.cs" />
     <Compile Include="Models\DAO\CreateModel.cs" />
     <Compile Include="Models\DAO\LoginModel.cs" />
-    <Compile Include="Models\Entities\CTDonHang.cs" />
-    <Compile Include="Models\Entities\DanhMuc.cs" />
-    <Compile Include="Models\Entities\DonHang.cs" />
-    <Compile Include="Models\Entities\KhachHang.cs" />
-    <Compile Include="Models\Entities\KhoangGia.cs" />
-    <Compile Include="Models\Entities\LaptopStoreDB.cs" />
-    <Compile Include="Models\Entities\SanPham.cs" />
-    <Compile Include="Models\Entities\sysdiagram.cs" />
+    <Compile Include="Models\Entities\Admin.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\CTDonHang.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\CTPhieuNhap.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\CTPhieuXuat.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DanhMuc.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\DonHang.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\HinhThucThanhToan.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\KhachHang.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\KhoangGia.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LaptopStoreDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStoreDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LaptopStoreDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\LaptopStoreDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaptopStoreDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\NhaCungCap.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\PhanQuyen.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\PhieuNhap.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\PhieuXuat.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\SanPham.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\sysdiagram.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ThongKeSPTheoTG_Result.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entities\ThongKeSPTheoThang_Result.cs">
+      <DependentUpon>LaptopStoreDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Functions\CartFunction.cs" />
     <Compile Include="Models\Functions\CTDonhangFunction.cs" />
     <Compile Include="Models\Functions\DanhMucFunction.cs" />
@@ -996,6 +1076,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\Entities\LaptopStoreDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaptopStoreDB.edmx</DependentUpon>
+      <LastGenOutput>LaptopStoreDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Entities\LaptopStoreDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LaptopStoreDB.edmx</DependentUpon>
+      <LastGenOutput>LaptopStoreDB.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\images\arrows.psd" />
@@ -1017,16 +1107,26 @@
     <Content Include="Areas\ADMIN\Assets\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Areas\ADMIN\Assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\ADMIN\Assets\fonts\glyphicons-halflings-regulard41d.eot" />
-    <Content Include="Areas\ADMIN\Views\Home\Index.cshtml" />
-    <Content Include="Areas\ADMIN\Views\DanhMuc\Index.cshtml" />
-    <Content Include="Areas\ADMIN\Views\DanhMuc\Create.cshtml" />
-    <Content Include="Areas\ADMIN\Views\DanhMuc\Edit.cshtml" />
-    <Content Include="Areas\ADMIN\Views\DanhMuc\Delete.cshtml" />
-    <Content Include="Areas\ADMIN\Views\SanPham\Details.cshtml" />
-    <Content Include="Areas\ADMIN\Views\SanPham\Index.cshtml" />
-    <Content Include="Areas\ADMIN\Views\SanPham\Create.cshtml" />
-    <Content Include="Areas\ADMIN\Views\SanPham\Edit.cshtml" />
-    <Content Include="Areas\ADMIN\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\DanhMucAdmin\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\DanhMucAdmin\Create.cshtml" />
+    <Content Include="Areas\ADMIN\Views\DanhMucAdmin\Edit.cshtml" />
+    <Content Include="Areas\ADMIN\Views\SanPhamAdmin\Details.cshtml" />
+    <Content Include="Areas\ADMIN\Views\SanPhamAdmin\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\SanPhamAdmin\Create.cshtml" />
+    <Content Include="Areas\ADMIN\Views\SanPhamAdmin\Edit.cshtml" />
+    <Content Include="Areas\ADMIN\Views\DonHangAdmin\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\DonHangAdmin\Details.cshtml" />
+    <Content Include="Areas\ADMIN\Views\TaiKhoanKhachHang\Index.cshtml" />
+    <Content Include="Areas\ADMIN\Views\Shared\Header.cshtml" />
+    <Content Include="Areas\ADMIN\Views\ThongKeSPTheoTG\Index.cshtml" />
+    <EntityDeploy Include="Models\Entities\LaptopStoreDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LaptopStoreDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Entities\LaptopStoreDB.edmx.diagram">
+      <DependentUpon>LaptopStoreDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1069,6 +1169,7 @@
     <Content Include="Views\Cart\InfoCart.cshtml" />
     <Content Include="Views\Cart\MuaHangThanhCong.cshtml" />
     <Content Include="Views\Loc\Index.cshtml" />
+    <Content Include="Views\DanhMuc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1086,6 +1187,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
