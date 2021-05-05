@@ -53,7 +53,8 @@ namespace LaptopStore.Areas.ADMIN.Controllers
         // GET: ADMIN/DanhMuc/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var model = new DanhMucFunction().FindEntity(id);
+            return View(model);
         }
 
         // POST: ADMIN/DanhMuc/Edit/5

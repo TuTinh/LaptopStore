@@ -17,7 +17,7 @@
             <div class="adv-table editable-table ">
                 <div class="clearfix">
                     <div class="btn-group">
-                        <button onclick="window.location.href='/ADMIN/Admin/Create'" id="" class="btn green">
+                        <button onclick="window.location.href='/ADMIN/DanhMucAdmin/Create'" id="" class="btn green">
                             Thêm mới <i class="fa fa-plus"></i>
                         </button>
                     </div>
@@ -45,7 +45,7 @@
                                 <tr class="">
                                     <td>@i.DanhmucID</td>
                                     <td class="center">@i.Tendanhmuc</td>
-                                    <td><a href="/ADMIN/DanhMuc/Edit/@i.DanhmucID">Edit</a></td>
+                                    <td><a href="/ADMIN/DanhMucAdmin/Edit/@i.DanhmucID">Edit</a></td>
                                     <td><a href="@Url.Action("XoaDM",new { id = i.DanhmucID})" onclick="return confirm('Bạn có chắc muốn xóa sản phẩm này?');" class="">Delete</a></td>
                                 </tr>
                             }

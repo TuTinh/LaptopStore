@@ -71,8 +71,9 @@ namespace LaptopStore.Areas.ADMIN.Controllers
             var model = new SanPhamFunction().FindEntity(id);
             var dao = new DanhMucFunction().DANHMUCs;
             ViewBag.DanhmucID = new SelectList(dao, "DanhmucID", "Tendanhmuc", model.DanhmucID);
+            ViewBag.Tendanhmuc = model.DanhMuc.Tendanhmuc;
             var test = new SelectList(dao, "DanhmucID", "Tendanhmuc", model.DanhmucID);
-            return View();
+            return View(model);
         }
 
         // POST: ADMIN/SanPham/Edit/5
